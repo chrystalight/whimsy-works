@@ -105,4 +105,47 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // Slideshow functionality
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    const prevBtn = document.querySelector('.slide-arrow.prev');
+    const nextBtn = document.querySelector('.slide-arrow.next');
+
+    if (slides.length > 0) {
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            // Wrap around
+            if (index >= slides.length) index = 0;
+            if (index < 0) index = slides.length - 1;
+
+            // Hide all slides
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+
+            // Show current slide
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentSlide = index;
+        }
+
+        // Arrow navigation
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => showSlide(currentSlide - 1));
+        }
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
+        }
+
+        // Dot navigation
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => showSlide(index));
+        });
+
+        // Auto-advance every 6 seconds
+        setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 6000);
+    }
 });

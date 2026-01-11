@@ -33,17 +33,11 @@
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1>Magic, for the kids who need it the most.</h1>
+            <p class="hero-caption">A volunteer-run nonprofit bringing theme-park quality character experiences to pediatric hospitals and community events at no cost.</p>
+            <a href="book.html" class="btn btn-hero">Book a Visit</a>
         </div>
         <!-- Replace src with your hero image -->
         <img src="images/hero-bg.jpg" alt="Character performers bringing joy to children" class="hero-bg">
-    </section>
-
-    <!-- Hero Caption Section -->
-    <section class="hero-caption">
-        <div class="container">
-            <p>We are a volunteer-run nonprofit organization providing high-end, theme-park quality character experiences to pediatric hospitals, fundraisers, and community events at absolutely no cost.</p>
-            <a href="book.html" class="btn btn-hero">Book a Visit</a>
-        </div>
     </section>
 
     <!-- Notice Banner (remove when site is complete) -->
@@ -53,23 +47,87 @@
         </div>
     </section>
 
-    <!-- Partners Section -->
-    <section class="partners" id="partners">
+    <!-- About Section -->
+    <section class="about" id="about">
         <div class="container">
-            <h2>Our Partners</h2>
+            <div class="about-grid">
+                <div class="about-image">
+                    <img src="images/catie.jpg" alt="Whimsy Works Princesses">
+                </div>
+                <div class="about-content">
+                    
+                    <p>Whimsy Works began with a handful of cosplayers at the Toronto Children’s Book Bank and has since grown into a province-wide collective of artists and volunteers. Our team handmakes and maintain dozens of size-inclusive, theme-park quality costumes, and we work with charitable organizations, non-profits, and families across Ontario. </p>
+
+                    <p>Whimsy Works is entirely volunteer-run. 85% of our visits are dedicated to charitable work and non-profit partnerships. By choosing us for your private events, you are directly providing accessible, high-quality experiences for families and organizations across Ontario.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Making Magic Across Ontario Section -->
+    <section class="impact-section" id="impact">
+        <div class="container">
+            <h2>Making Magic Across Ontario</h2>
+            <div class="slideshow-container">
+                <!-- Slide 1 -->
+                <div class="slide active">
+                    <img src="images/event-1.jpg" alt="Event photo">
+                    <div class="slide-caption">
+                        <p>Taylor Swift was one of twenty characters from Whimsy Works to join Starlight Children's Foundation at their 2025 Trick or Suite event, an annual accessible halloween event in Aurora.</p>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="slide">
+                    <img src="images/event-2.jpg" alt="Event photo">
+                    <div class="slide-caption">
+                        <p>Elsa visited the children's cancer wing of Trinity Memorial Hospital in Port Credit, in honor of Children's Cancer Awareness month in 2024.</p>
+                    </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="slide">
+                    <img src="images/event-3.jpg" alt="Event photo">
+                    <div class="slide-caption">
+                        <p>Elsa, Anna, and Tinkerbelle brought some fairytale magic to the annual Walk to Change Cystic Fibrosis History, hosted by CF Canada in 2025.</p>
+                    </div>
+                </div>
+                <!-- Navigation arrows -->
+                <button class="slide-arrow prev" aria-label="Previous slide">&#10094;</button>
+                <button class="slide-arrow next" aria-label="Next slide">&#10095;</button>
+            </div>
+            <!-- Dots -->
+            <div class="slide-dots">
+                <span class="dot active" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+                <span class="dot" data-slide="2"></span>
+            </div>
+
+            <!-- Partners -->
+            <p class="partners-subtitle">Proud to partner with</p>
             <div class="partners-grid">
                 <!-- Replace src with your partner logos -->
-                <div class="partner-logo">
-                    <img src="images/partner-1.png" alt="Partner Organization 1">
+                <img src="images/partner-1.png" alt="Partner Organization 1">
+                <img src="images/partner-2.png" alt="Partner Organization 2">
+                <img src="images/partner-3.png" alt="Partner Organization 3">
+                <img src="images/partner-4.png" alt="Partner Organization 4">
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <blockquote>
+                        <p>"Thank you for all you do and thank your actors for putting smiles on our rare babies faces. Nothing makes me happier than seeing my sons experience these things together."</p>
+                    </blockquote>
+                    <cite>— Parent of a boy with Pallister-Killian Syndrome</cite>
                 </div>
-                <div class="partner-logo">
-                    <img src="images/partner-2.png" alt="Partner Organization 2">
-                </div>
-                <div class="partner-logo">
-                    <img src="images/partner-3.png" alt="Partner Organization 3">
-                </div>
-                <div class="partner-logo">
-                    <img src="images/partner-4.png" alt="Partner Organization 4">
+                <div class="testimonial">
+                    <blockquote>
+                        <p>"Seeing the kids light up with excitement reminded us all of the power of inclusion, fun, and connection."</p>
+                    </blockquote>
+                    <cite>— Parent of a Starlight Family</cite>
                 </div>
             </div>
         </div>
@@ -78,6 +136,7 @@
     <!-- Characters Section -->
     <section class="characters" id="characters">
         <div class="container">
+            <h2 class="section-title">Our Character Family</h2>
             <!-- Fairytale Princesses -->
             <div class="character-category">
                 <div class="category-content">
