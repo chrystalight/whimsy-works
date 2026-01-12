@@ -148,4 +148,83 @@ document.addEventListener('DOMContentLoaded', function() {
             showSlide(currentSlide + 1);
         }, 6000);
     }
+
+    // Lightbox functionality
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.querySelector('.lightbox-image');
+    const lightboxOverlay = document.querySelector('.lightbox-overlay');
+    const lightboxClose = document.querySelector('.lightbox-close');
+    const lightboxPrev = document.querySelector('.lightbox-prev');
+    const lightboxNext = document.querySelector('.lightbox-next');
+    const lightboxCurrent = document.querySelector('.lightbox-current');
+    const lightboxTotal = document.querySelector('.lightbox-total');
+    const lightboxTriggers = document.querySelectorAll('.lightbox-trigger');
+
+    if (lightbox && lightboxTriggers.length > 0) {
+        let currentGallery = [];
+        let currentIndex = 0;
+
+        function openLightbox(images, startIndex = 0) {
+            currentGallery = images;
+            currentIndex = startIndex;
+            lightboxTotal.textContent = images.length;
+            showLightboxImage(currentIndex);
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function showLightboxImage(index) {
+            if (index < 0) index = currentGallery.length - 1;
+            if (index >= currentGallery.length) index = 0;
+            currentIndex = index;
+            lightboxImage.src = currentGallery[currentIndex];
+            lightboxImage.alt = 'Gallery image ' + (currentIndex + 1);
+            lightboxCurrent.textContent = currentIndex + 1;
+        }
+
+        function nextImage() {
+            showLightboxImage(currentIndex + 1);
+        }
+
+        function prevImage() {
+            showLightboxImage(currentIndex - 1);
+        }
+
+        // Click on character images to open lightbox
+        lightboxTriggers.forEach(trigger => {
+            trigger.addEventListener('click', function() {
+                const imagesData = this.getAttribute('data-images');
+                if (imagesData) {
+                    const images = imagesData.split(',').map(img => img.trim());
+                    openLightbox(images, 0);
+                }
+            });
+        });
+
+        // Close lightbox
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightboxOverlay.addEventListener('click', closeLightbox);
+
+        // Navigation
+        lightboxNext.addEventListener('click', nextImage);
+        lightboxPrev.addEventListener('click', prevImage);
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (!lightbox.classList.contains('active')) return;
+
+            if (e.key === 'Escape') {
+                closeLightbox();
+            } else if (e.key === 'ArrowRight') {
+                nextImage();
+            } else if (e.key === 'ArrowLeft') {
+                prevImage();
+            }
+        });
+    }
 });

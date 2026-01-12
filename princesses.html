@@ -41,23 +41,36 @@
     <!-- Character Gallery -->
     <section class="character-gallery-page">
         <div class="container">
-            <!-- Elsa & Anna -->
+            <!-- Elsa -->
             <div class="character-card">
                 <div class="character-image">
-                    <img src="images/princess-elsa-anna.jpg" alt="Snow Sisters - Elsa and Anna">
+                    <img src="images/princess-elsa.jpg" alt="Elsa - The Snow Queen" class="lightbox-trigger" data-gallery="elsa" data-images="images/princess-elsa.jpg,images/princess-elsa-2.jpg,images/princess-elsa-3.jpg">
                 </div>
                 <div class="character-info">
-                    <h2>The Snow Sisters</h2>
-                    <p class="character-subtitle">Elsa & Anna</p>
-                    <p>Bring the enchantment of Arendelle to your event with our beloved Snow Sisters. These two bring warmth, adventure, and sisterly love to every gathering. Perfect for winter-themed parties or any celebration that needs a touch of frozen magic.</p>
+                    <h2>The Snow Queen</h2>
+                    <p class="character-subtitle">Elsa</p>
+                    <p>Let the magic of Arendelle's Snow Queen enchant your celebration. With her grace, powerful presence, and iconic style, Elsa inspires children to embrace who they are and that being different is a gift. Perfect for winter wonderland parties or any event that needs a touch of frozen magic.</p>
+                    <a href="book.html" class="btn btn-secondary">Book Now</a>
+                </div>
+            </div>
+
+            <!-- Anna -->
+            <div class="character-card reverse">
+                <div class="character-image">
+                    <img src="images/princess-anna.jpg" alt="Anna - The Princess of Arendelle" class="lightbox-trigger" data-gallery="anna" data-images="images/princess-anna.jpg,images/princess-anna-2.jpg,images/princess-anna-3.jpg">
+                </div>
+                <div class="character-info">
+                    <h2>The Princess of Arendelle</h2>
+                    <p class="character-subtitle">Anna</p>
+                    <p>Brave, optimistic, and full of heart, Anna brings warmth and adventure to every gathering. She teaches children about the power of love, determination, and never giving up on the people you care about. Her cheerful spirit lights up any celebration.</p>
                     <a href="book.html" class="btn btn-secondary">Book Now</a>
                 </div>
             </div>
 
             <!-- Merida -->
-            <div class="character-card reverse">
+            <div class="character-card">
                 <div class="character-image">
-                    <img src="images/princess-merida.jpg" alt="Merida - The Scottish Archer">
+                    <img src="images/princess-merida.jpg" alt="Merida - The Scottish Archer" class="lightbox-trigger" data-gallery="merida" data-images="images/princess-merida.jpg,images/princess-merida-2.jpg,images/princess-merida-3.jpg">
                 </div>
                 <div class="character-info">
                     <h2>The Scottish Archer</h2>
@@ -68,9 +81,9 @@
             </div>
 
             <!-- Belle -->
-            <div class="character-card">
+            <div class="character-card reverse">
                 <div class="character-image">
-                    <img src="images/princess-belle.jpg" alt="Belle - The French Princess">
+                    <img src="images/princess-belle.jpg" alt="Belle - The French Princess" class="lightbox-trigger" data-gallery="belle" data-images="images/princess-belle.jpg,images/princess-belle-2.jpg,images/princess-belle-3.jpg">
                 </div>
                 <div class="character-info">
                     <h2>The French Princess</h2>
@@ -81,9 +94,9 @@
             </div>
 
             <!-- Rapunzel -->
-            <div class="character-card reverse">
+            <div class="character-card">
                 <div class="character-image">
-                    <img src="images/princess-rapunzel.jpg" alt="Rapunzel - The Lost Princess">
+                    <img src="images/princess-rapunzel.jpg" alt="Rapunzel - The Lost Princess" class="lightbox-trigger" data-gallery="rapunzel" data-images="images/princess-rapunzel.jpg,images/princess-rapunzel-2.jpg,images/princess-rapunzel-3.jpg">
                 </div>
                 <div class="character-info">
                     <h2>The Lost Princess</h2>
@@ -94,9 +107,9 @@
             </div>
 
             <!-- Aurora -->
-            <div class="character-card">
+            <div class="character-card reverse">
                 <div class="character-image">
-                    <img src="images/princess-aurora.jpg" alt="Aurora - Sleeping Beauty">
+                    <img src="images/princess-aurora.jpg" alt="Aurora - Sleeping Beauty" class="lightbox-trigger" data-gallery="aurora" data-images="images/princess-aurora.jpg,images/princess-aurora-2.jpg,images/princess-aurora-3.jpg">
                 </div>
                 <div class="character-info">
                     <h2>Sleeping Beauty</h2>
@@ -107,9 +120,9 @@
             </div>
 
             <!-- Snow White -->
-            <div class="character-card reverse">
+            <div class="character-card">
                 <div class="character-image">
-                    <img src="images/princess-snow-white.jpg" alt="Snow White">
+                    <img src="images/princess-snow-white.jpg" alt="Snow White" class="lightbox-trigger" data-gallery="snowwhite" data-images="images/princess-snow-white.jpg,images/princess-snow-white-2.jpg,images/princess-snow-white-3.jpg">
                 </div>
                 <div class="character-info">
                     <h2>The Fairest of Them All</h2>
@@ -120,9 +133,9 @@
             </div>
 
             <!-- Cinderella -->
-            <div class="character-card">
+            <div class="character-card reverse">
                 <div class="character-image">
-                    <img src="images/princess-cinderella.jpg" alt="Cinderella">
+                    <img src="images/princess-cinderella.jpg" alt="Cinderella" class="lightbox-trigger" data-gallery="cinderella" data-images="images/princess-cinderella.jpg,images/princess-cinderella-2.jpg,images/princess-cinderella-3.jpg">
                 </div>
                 <div class="character-info">
                     <h2>The Glass Slipper Princess</h2>
@@ -173,6 +186,22 @@
             </div>
         </div>
     </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-overlay"></div>
+        <div class="lightbox-content">
+            <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
+            <button class="lightbox-arrow lightbox-prev" aria-label="Previous image">&#10094;</button>
+            <div class="lightbox-image-container">
+                <img src="" alt="" class="lightbox-image">
+            </div>
+            <button class="lightbox-arrow lightbox-next" aria-label="Next image">&#10095;</button>
+            <div class="lightbox-counter">
+                <span class="lightbox-current">1</span> / <span class="lightbox-total">3</span>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
