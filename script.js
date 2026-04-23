@@ -201,7 +201,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 const imagesData = this.getAttribute('data-images');
                 if (imagesData) {
                     const images = imagesData.split(',').map(img => img.trim());
-                    openLightbox(images, 0);
+                    const startIndex = parseInt(this.getAttribute('data-start') || '0');
+                    openLightbox(images, startIndex);
                 }
             });
         });
@@ -227,6 +228,33 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    // Princess expand panels
+    document.querySelectorAll('.see-more-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const wrapper = this.closest('.character-card-wrapper');
+            const expand = wrapper.querySelector('.character-expand');
+            const isOpen = expand.classList.contains('open');
+
+            if (isOpen) {
+                expand.style.maxHeight = expand.scrollHeight + 'px';
+                requestAnimationFrame(() => requestAnimationFrame(() => {
+                    expand.style.maxHeight = '0';
+                    expand.style.opacity = '0';
+                }));
+                setTimeout(() => expand.classList.remove('open'), 550);
+                this.textContent = 'See More';
+                this.setAttribute('aria-expanded', 'false');
+            } else {
+                expand.classList.add('open');
+                expand.style.maxHeight = expand.scrollHeight + 'px';
+                expand.style.opacity = '1';
+                this.textContent = 'See Less';
+                this.setAttribute('aria-expanded', 'true');
+                setTimeout(() => { expand.style.maxHeight = 'none'; }, 560);
+            }
+        });
+    });
 
     // Sparkle cursor trail
     const sparkleChars = ['\u2728', '\u2B50', '\u00B7', '\u2736', '\u2022'];
