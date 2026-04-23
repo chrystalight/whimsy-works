@@ -227,4 +227,24 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    // Sparkle cursor trail
+    const sparkles = ['\u2728', '\u2B50', '\u00B7', '\u2736', '\u2022'];
+    const sparkleColors = ['#937288', '#FFA7A0', '#A0CBD4', '#D67A74', '#7192A6'];
+    let lastSparkle = 0;
+    document.addEventListener('mousemove', function(e) {
+        const now = Date.now();
+        if (now - lastSparkle < 50) return;
+        lastSparkle = now;
+        const el = document.createElement('span');
+        el.className = 'sparkle';
+        el.textContent = sparkles[Math.floor(Math.random() * sparkles.length)];
+        el.style.left = e.clientX + 'px';
+        el.style.top = e.clientY + 'px';
+        el.style.color = sparkleColors[Math.floor(Math.random() * sparkleColors.length)];
+        el.style.setProperty('--dx', (Math.random() - 0.5) * 40 + 'px');
+        el.style.setProperty('--dy', (Math.random() * -30 - 10) + 'px');
+        document.body.appendChild(el);
+        el.addEventListener('animationend', function() { el.remove(); });
+    });
 });
