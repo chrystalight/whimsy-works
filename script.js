@@ -256,6 +256,25 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Outfit image switcher
+    document.querySelectorAll('.outfit-buttons').forEach(group => {
+        group.querySelectorAll('.outfit-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                group.querySelectorAll('.outfit-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                const preview = this.closest('.outfit-section').querySelector('.outfit-preview');
+                const newSrc = this.getAttribute('data-img');
+                if (preview && newSrc) {
+                    preview.classList.add('fading');
+                    setTimeout(() => {
+                        preview.src = newSrc;
+                        preview.classList.remove('fading');
+                    }, 200);
+                }
+            });
+        });
+    });
+
     // Sparkle cursor trail
     const sparkleChars = ['\u2728', '\u2B50', '\u00B7', '\u2736', '\u2022'];
     const sparkleColors = ['#937288', '#FFA7A0', '#A0CBD4', '#D67A74', '#7192A6'];
