@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Calendar - Whimsy Works</title>
+    <link rel="icon" type="image/png" href="images/shield.png">
+    <meta name="description" content="See where Whimsy Works is appearing next — upcoming public events, fundraisers, and community appearances across Ontario.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html" class="logo"><img src="images/shield.png" alt="Whimsy Works" class="logo-img">Whimsy Works</a>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav">
+                <a href="princesses.html" class="nav-link">Princesses</a>
+                <a href="superheros.html" class="nav-link">Superheroes</a>
+                <a href="more-characters.html" class="nav-link">Other Characters</a>
+                <a href="events.html" class="nav-link">Event Calendar</a>
+                <a href="book.html" class="nav-link">Book a Visit</a>
+                <a href="volunteer.html" class="nav-link btn-primary">Volunteer</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="page-hero-overlay"></div>
+        <div class="page-hero-content">
+            <h1>Event Calendar</h1>
+            <p>Come find us! Here's where Whimsy Works will be appearing next.</p>
+        </div>
+        <img src="images/blank-hero-bg.jpg" alt="Whimsy Works at a community event" class="page-hero-bg">
+    </section>
+
+    <!-- Events Section -->
+    <section class="events-section">
+        <div class="container">
+
+            <!-- Upcoming Events -->
+            <div class="events-group">
+                <h2 class="events-group-title">Upcoming Events</h2>
+                <div class="events-list">
+
+                    <!-- Event Card — duplicate and fill in as needed -->
+                    <div class="event-card">
+                        <div class="event-date-block">
+                            <span class="event-month">MAY</span>
+                            <span class="event-day">17</span>
+                            <span class="event-year">2025</span>
+                        </div>
+                        <div class="event-info">
+                            <div class="event-header">
+                                <h3 class="event-title">Example Upcoming Event</h3>
+                                <span class="event-badge event-badge-community">Community</span>
+                            </div>
+                            <p class="event-location">📍 Toronto, ON</p>
+                            <p class="event-description">A brief description of the event — what it is, who it's for, and what to expect from Whimsy Works.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- No events placeholder — remove when events are added above -->
+            <div class="events-empty">
+                <p>✨ Check back soon — new events are added regularly!</p>
+                <p>Follow us on <a href="https://instagram.com/WhimsyWorking" target="_blank" rel="noopener">Instagram</a> and <a href="https://facebook.com/WhimsyWorking" target="_blank" rel="noopener">Facebook</a> for the latest announcements.</p>
+            </div>
+
+            <!-- Past Events -->
+            <div class="events-group events-group-past">
+                <h2 class="events-group-title">Past Events</h2>
+                <div class="events-list">
+
+                    <div class="event-card past">
+                        <div class="event-date-block">
+                            <span class="event-month">OCT</span>
+                            <span class="event-day">31</span>
+                            <span class="event-year">2024</span>
+                        </div>
+                        <div class="event-info">
+                            <div class="event-header">
+                                <h3 class="event-title">Trick or Suite — Starlight Children's Foundation</h3>
+                                <span class="event-badge event-badge-charity">Charity</span>
+                            </div>
+                            <p class="event-location">📍 Aurora, ON</p>
+                            <p class="event-description">Twenty Whimsy Works characters joined Starlight Children's Foundation for their annual accessible Halloween event, bringing joy to children and families.</p>
+                        </div>
+                    </div>
+
+                    <div class="event-card past">
+                        <div class="event-date-block">
+                            <span class="event-month">SEP</span>
+                            <span class="event-day">14</span>
+                            <span class="event-year">2024</span>
+                        </div>
+                        <div class="event-info">
+                            <div class="event-header">
+                                <h3 class="event-title">Walk to Change Cystic Fibrosis History — CF Canada</h3>
+                                <span class="event-badge event-badge-charity">Charity</span>
+                            </div>
+                            <p class="event-location">📍 Toronto, ON</p>
+                            <p class="event-description">Elsa, Anna, and Tinkerbelle brought fairytale magic to the annual CF Canada walk in support of cystic fibrosis research.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container">
+            <h2>Want Whimsy Works at your event?</h2>
+            <p>We love partnering with charities, nonprofits, and community organizations. Get in touch!</p>
+            <div class="cta-buttons">
+                <a href="book.html" class="btn btn-hero">Book a Visit</a>
+                <a href="mailto:info@whimsyworks.ca" class="btn btn-outline">Email Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Whimsy Works</h3>
+                    <p>Magic, for the kids who need it the most.</p>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <a href="mailto:info@whimsyworks.ca">info@whimsyworks.ca</a>
+                </div>
+                <div class="footer-social">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="https://facebook.com/WhimsyWorking" aria-label="Facebook" target="_blank" rel="noopener">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        </a>
+                        <a href="https://instagram.com/WhimsyWorking" aria-label="Instagram" target="_blank" rel="noopener">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Whimsy Works. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
