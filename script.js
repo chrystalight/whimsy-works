@@ -266,12 +266,47 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Main card image click = open expand (same as See More button)
-    document.querySelectorAll('.card-expand-trigger').forEach(img => {
-        img.addEventListener('click', function() {
-            const btn = this.closest('.character-card-wrapper').querySelector('.see-more-btn');
-            if (btn) btn.click();
+    // Main card image slideshow
+    document.querySelectorAll('.card-slideshow[data-images]').forEach(container => {
+        const srcs = container.getAttribute('data-images').split(',').map(s => s.trim()).filter(Boolean);
+        if (srcs.length === 0) return;
+
+        let current = 0;
+        const slides = srcs.map((src, i) => {
+            const img = document.createElement('img');
+            img.src = src;
+            img.alt = container.closest('.character-card').querySelector('h2')?.textContent || 'Character photo';
+            img.className = 'card-slide' + (i === 0 ? ' active' : '');
+            container.appendChild(img);
+            return img;
         });
+
+        function showCardSlide(index) {
+            if (index >= slides.length) index = 0;
+            if (index < 0) index = slides.length - 1;
+            slides.forEach(s => s.classList.remove('active'));
+            slides[index].classList.add('active');
+            current = index;
+        }
+
+        if (slides.length > 1) {
+            const prev = document.createElement('button');
+            prev.className = 'card-slide-btn card-slide-prev';
+            prev.innerHTML = '&#10094;';
+            prev.setAttribute('aria-label', 'Previous photo');
+
+            const next = document.createElement('button');
+            next.className = 'card-slide-btn card-slide-next';
+            next.innerHTML = '&#10095;';
+            next.setAttribute('aria-label', 'Next photo');
+
+            container.appendChild(prev);
+            container.appendChild(next);
+
+            prev.addEventListener('click', e => { e.stopPropagation(); showCardSlide(current - 1); });
+            next.addEventListener('click', e => { e.stopPropagation(); showCardSlide(current + 1); });
+            slides.forEach(img => img.addEventListener('click', () => showCardSlide(current + 1)));
+        }
     });
 
     // Princess expand panels
@@ -324,7 +359,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return img;
         });
 
-        const spread = 70;
+        const spread = 84;
         const count = images.length;
 
         // Set fixed positions once — never move on click
