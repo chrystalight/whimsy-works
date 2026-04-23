@@ -229,7 +229,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Sparkle cursor trail
-    const sparkles = ['\u2728', '\u2B50', '\u00B7', '\u2736', '\u2022'];
+    const sparkleChars = ['\u2728', '\u2B50', '\u00B7', '\u2736', '\u2022'];
     const sparkleColors = ['#937288', '#FFA7A0', '#A0CBD4', '#D67A74', '#7192A6'];
     let lastSparkle = 0;
     document.addEventListener('mousemove', function(e) {
@@ -238,13 +238,17 @@ document.addEventListener('DOMContentLoaded', function() {
         lastSparkle = now;
         const el = document.createElement('span');
         el.className = 'sparkle';
-        el.textContent = sparkles[Math.floor(Math.random() * sparkles.length)];
+        el.textContent = sparkleChars[Math.floor(Math.random() * sparkleChars.length)];
         el.style.left = e.clientX + 'px';
         el.style.top = e.clientY + 'px';
         el.style.color = sparkleColors[Math.floor(Math.random() * sparkleColors.length)];
-        el.style.setProperty('--dx', (Math.random() - 0.5) * 40 + 'px');
-        el.style.setProperty('--dy', (Math.random() * -30 - 10) + 'px');
         document.body.appendChild(el);
-        el.addEventListener('animationend', function() { el.remove(); });
+        const dx = (Math.random() - 0.5) * 40 + 'px';
+        const dy = (Math.random() * -30 - 10) + 'px';
+        el.animate([
+            { opacity: 1, transform: `scale(1) translate(0, 0) rotate(0deg)` },
+            { opacity: 0, transform: `scale(0.2) translate(${dx}, ${dy}) rotate(180deg)` }
+        ], { duration: 700, easing: 'ease-out', fill: 'forwards' }
+        ).onfinish = () => el.remove();
     });
 });
