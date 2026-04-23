@@ -678,10 +678,15 @@ h1, h2, h3, h4 {
     width: 100%;
     aspect-ratio: 1;
     object-fit: cover;
+    object-position: center;
     border-radius: 16px;
     box-shadow: 0 4px 16px rgba(147, 114, 136, 0.15);
     transition: var(--transition);
     border: 3px solid rgba(255, 255, 255, 0.8);
+}
+
+.princesses-category .category-gallery img {
+    object-position: top;
 }
 
 .category-gallery img:hover {
@@ -1123,6 +1128,7 @@ h1, h2, h3, h4 {
     width: 100%;
     aspect-ratio: 4/3;
     object-fit: cover;
+    object-position: top;
     border-radius: 12px;
     box-shadow: var(--shadow-lg);
 }
