@@ -114,7 +114,14 @@
                 <h2>Request a Booking</h2>
                 <p>Fill out the form below and we'll get back to you within 48 hours to confirm availability and details.</p>
 
-                <form class="booking-form" action="mailto:info@whimsyworks.ca" method="post" enctype="text/plain">
+                <form class="booking-form" id="booking-form" action="https://api.web3forms.com/submit" method="POST">
+                    <!-- Web3Forms setup — replace YOUR_ACCESS_KEY_HERE with the key emailed to you from web3forms.com -->
+                    <input type="hidden" name="access_key" value="8b699752-5b68-4b1d-9267-5977ebfcdfd6">
+                    <input type="hidden" name="subject" value="New Booking Request — Whimsy Works">
+                    <input type="hidden" name="from_name" value="Whimsy Works Website">
+                    <!-- Honeypot spam filter -->
+                    <input type="checkbox" name="botcheck" style="display:none">
+
                     <div class="form-group">
                         <label for="name">Your Name *</label>
                         <input type="text" id="name" name="name" required>
@@ -151,9 +158,9 @@
                         <label for="package">Package *</label>
                         <select id="package" name="package" required>
                             <option value="">Select a package...</option>
-                            <option value="meet-greet">Meet and Greet ($150 - 20 min)</option>
-                            <option value="party-playdate">Party Playdate ($190 - 45 min)</option>
-                            <option value="ultimate-ball">Ultimate Ball ($230 - 60 min)</option>
+                            <option value="Meet and Greet ($150 - 20 min)">Meet and Greet ($150 - 20 min)</option>
+                            <option value="Party Playdate ($190 - 45 min)">Party Playdate ($190 - 45 min)</option>
+                            <option value="Ultimate Ball ($230 - 60 min)">Ultimate Ball ($230 - 60 min)</option>
                         </select>
                     </div>
 
@@ -164,10 +171,17 @@
 
                     <div class="form-group">
                         <label for="details">Additional Details</label>
-                        <textarea id="details" name="details" rows="4" placeholder="Tell us about your event, the guest of honor, any special requests..."></textarea>
+                        <textarea id="details" name="details" rows="4" placeholder="Tell us about your event, the guest of honour, any special requests..."></textarea>
                     </div>
 
-                    <button type="submit" class="btn btn-primary btn-full">Send Request</button>
+                    <button type="submit" class="btn btn-primary btn-full" id="booking-submit">Send Request</button>
+
+                    <div id="booking-success" style="display:none" class="booking-success">
+                        <p>✨ Your request has been sent! We'll be in touch within 48 hours.</p>
+                    </div>
+                    <div id="booking-error" style="display:none" class="booking-error">
+                        <p>Something went wrong. Please email us directly at <a href="mailto:info@whimsyworks.ca">info@whimsyworks.ca</a>.</p>
+                    </div>
                 </form>
 
                 <p class="form-note">Prefer email? Send your inquiry directly to <a href="mailto:info@whimsyworks.ca">info@whimsyworks.ca</a></p>

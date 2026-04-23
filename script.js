@@ -229,6 +229,51 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Expand panel slideshows — built from data-images attribute
+    document.querySelectorAll('.expand-gallery[data-images]').forEach(gallery => {
+        const srcs = gallery.getAttribute('data-images').split(',').map(s => s.trim()).filter(Boolean);
+        if (srcs.length === 0) return;
+
+        const prevBtn = gallery.querySelector('.expand-slide-prev');
+        const nextBtn = gallery.querySelector('.expand-slide-next');
+        let slides = [];
+        let current = 0;
+
+        function showExpandSlide(index) {
+            if (index >= slides.length) index = 0;
+            if (index < 0) index = slides.length - 1;
+            slides.forEach(s => s.classList.remove('active'));
+            slides[index].classList.add('active');
+            current = index;
+        }
+
+        srcs.forEach((src, i) => {
+            const img = document.createElement('img');
+            img.src = src;
+            img.alt = 'Gallery photo';
+            img.className = 'expand-slide' + (i === 0 ? ' active' : '');
+            img.addEventListener('click', () => showExpandSlide(current + 1));
+            gallery.insertBefore(img, prevBtn);
+            slides.push(img);
+        });
+
+        if (slides.length <= 1) {
+            if (prevBtn) prevBtn.style.display = 'none';
+            if (nextBtn) nextBtn.style.display = 'none';
+        } else {
+            if (prevBtn) prevBtn.addEventListener('click', e => { e.stopPropagation(); showExpandSlide(current - 1); });
+            if (nextBtn) nextBtn.addEventListener('click', e => { e.stopPropagation(); showExpandSlide(current + 1); });
+        }
+    });
+
+    // Main card image click = open expand (same as See More button)
+    document.querySelectorAll('.card-expand-trigger').forEach(img => {
+        img.addEventListener('click', function() {
+            const btn = this.closest('.character-card-wrapper').querySelector('.see-more-btn');
+            if (btn) btn.click();
+        });
+    });
+
     // Princess expand panels
     document.querySelectorAll('.see-more-btn').forEach(btn => {
         btn.addEventListener('click', function() {
@@ -251,29 +296,92 @@ document.addEventListener('DOMContentLoaded', function() {
                 expand.style.opacity = '1';
                 this.textContent = 'See Less';
                 this.setAttribute('aria-expanded', 'true');
-                setTimeout(() => { expand.style.maxHeight = 'none'; }, 560);
+                setTimeout(() => {
+                    expand.style.maxHeight = 'none';
+                }, 560);
             }
         });
     });
 
-    // Outfit image switcher
-    document.querySelectorAll('.outfit-buttons').forEach(group => {
-        group.querySelectorAll('.outfit-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                group.querySelectorAll('.outfit-btn').forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-                const preview = this.closest('.outfit-section').querySelector('.outfit-preview');
-                const newSrc = this.getAttribute('data-img');
-                if (preview && newSrc) {
-                    preview.classList.add('fading');
-                    setTimeout(() => {
-                        preview.src = newSrc;
-                        preview.classList.remove('fading');
-                    }, 200);
-                }
-            });
+    // Outfit image fan switcher
+    document.querySelectorAll('.outfit-section').forEach(section => {
+        const singlePreview = section.querySelector('.outfit-preview');
+        const buttons = Array.from(section.querySelectorAll('.outfit-btn'));
+        if (!singlePreview || buttons.length === 0) return;
+
+        // Build stacked image set
+        const stack = document.createElement('div');
+        stack.className = 'outfit-preview-stack';
+        singlePreview.parentNode.insertBefore(stack, singlePreview);
+        singlePreview.remove();
+
+        const images = buttons.map((btn, i) => {
+            const img = document.createElement('img');
+            img.src = btn.getAttribute('data-img');
+            img.alt = btn.textContent.trim() + ' outfit';
+            img.className = 'outfit-preview' + (btn.classList.contains('active') ? ' active' : '');
+            stack.appendChild(img);
+            return img;
         });
+
+        const spread = 70;
+        const count = images.length;
+
+        // Set fixed positions once — never move on click
+        images.forEach((img, i) => {
+            const x = (i - (count - 1) / 2) * spread;
+            img.style.transform = `translateX(${x}px)`;
+            img.style.zIndex = count - i;
+        });
+
+        function activate(index) {
+            images.forEach((img, i) => {
+                img.classList.toggle('active', i === index);
+                img.style.zIndex = i === index ? count + 1 : count - Math.abs(i - index);
+            });
+            buttons.forEach((btn, i) => btn.classList.toggle('active', i === index));
+        }
+
+        const initialActive = buttons.findIndex(b => b.classList.contains('active'));
+        activate(initialActive >= 0 ? initialActive : 0);
+
+        buttons.forEach((btn, i) => btn.addEventListener('click', () => activate(i)));
     });
+
+    // Booking form — Web3Forms async submission
+    const bookingForm = document.getElementById('booking-form');
+    if (bookingForm) {
+        bookingForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const submitBtn = document.getElementById('booking-submit');
+            const successDiv = document.getElementById('booking-success');
+            const errorDiv = document.getElementById('booking-error');
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending…';
+            errorDiv.style.display = 'none';
+
+            try {
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: new FormData(bookingForm)
+                });
+                const data = await response.json();
+
+                if (data.success) {
+                    bookingForm.querySelectorAll('.form-group, .form-row').forEach(el => el.style.display = 'none');
+                    submitBtn.style.display = 'none';
+                    successDiv.style.display = 'block';
+                } else {
+                    throw new Error(data.message || 'Submission failed');
+                }
+            } catch (err) {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Request';
+                errorDiv.style.display = 'block';
+            }
+        });
+    }
 
     // Sparkle cursor trail
     const sparkleChars = ['\u2728', '\u2B50', '\u00B7', '\u2736', '\u2022'];
