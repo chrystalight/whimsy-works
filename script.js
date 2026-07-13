@@ -91,6 +91,57 @@ document.addEventListener('DOMContentLoaded', function() {
         copyrightYear.textContent = copyrightYear.textContent.replace('2024', currentYear);
     }
 
+    // Events calendar — data lives in events-data.js. Upcoming/past and the
+    // sort order are computed here from each event's date, so nothing ever
+    // needs to be moved by hand as events pass.
+    const upcomingList = document.getElementById('upcoming-events-list');
+    const pastList = document.getElementById('past-events-list');
+
+    if (upcomingList && pastList && typeof EVENTS !== 'undefined') {
+        const now = new Date();
+        const todayStr = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0') + '-' + String(now.getDate()).padStart(2, '0');
+        const MONTHS = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+
+        function buildEventCard(ev, isPast) {
+            const [year, month, day] = ev.date.split('-').map(Number);
+            const badgeSlug = (ev.badge || '').toLowerCase().replace(/[^a-z]/g, '');
+
+            const card = document.createElement('div');
+            card.className = 'event-card' + (isPast ? ' past' : '');
+            card.innerHTML = `
+                <div class="event-date-block">
+                    <span class="event-month">${MONTHS[month - 1]}</span>
+                    <span class="event-day">${day}</span>
+                    <span class="event-year">${year}</span>
+                </div>
+                <div class="event-info">
+                    <div class="event-header">
+                        <h3 class="event-title">${ev.title}</h3>
+                        ${ev.badge ? `<span class="event-badge event-badge-${badgeSlug}">${ev.badge}</span>` : ''}
+                    </div>
+                    ${ev.charity ? `<p class="event-charity">${ev.charity}</p>` : ''}
+                    ${ev.location ? `<p class="event-location">${ev.location}</p>` : ''}
+                    ${!isPast && ev.time ? `<p class="event-time">${ev.time}</p>` : ''}
+                    ${ev.description ? `<p class="event-description">${ev.description}</p>` : ''}
+                    ${!isPast && ev.link ? `<a href="${ev.link.url}" target="_blank" rel="noopener" class="btn btn-secondary event-btn">${ev.link.text || 'Learn More →'}</a>` : ''}
+                </div>
+            `;
+            return card;
+        }
+
+        const upcoming = EVENTS.filter(ev => ev.date >= todayStr).sort((a, b) => a.date.localeCompare(b.date));
+        const past = EVENTS.filter(ev => ev.date < todayStr).sort((a, b) => b.date.localeCompare(a.date));
+
+        upcoming.forEach(ev => upcomingList.appendChild(buildEventCard(ev, false)));
+        past.forEach(ev => pastList.appendChild(buildEventCard(ev, true)));
+
+        const emptyState = document.getElementById('events-empty');
+        if (emptyState) emptyState.style.display = upcoming.length === 0 ? 'block' : 'none';
+
+        const pastGroup = document.getElementById('past-events-group');
+        if (pastGroup) pastGroup.style.display = past.length === 0 ? 'none' : '';
+    }
+
     // Show filename labels on placeholder images
     document.querySelectorAll('img').forEach(img => {
         img.addEventListener('error', function() {
