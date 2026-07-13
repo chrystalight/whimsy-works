@@ -33,6 +33,17 @@
 const EVENTS = [
 
     {
+        date: "2026-09-12",
+        title: "Superhero Stomp",
+        badge: "Fundraiser",
+        charity: "Fundraiser by Candlelighters Simcoe, an organization of families facing childhood cancer.",
+        location: "📍 Southshore Community Center, Lakeshore Drive, Barrie",
+        time: "🕚 11:00 AM – 1:00 PM",
+        description: "Some people dream of being a Superhero. But for kids fighting cancer, there is no choice. They must become a Superhero as they fight the evil villain known as Cancer!",
+        link: { url: "https://raceroster.com/events/2026/138813/superhero-stomp-2026", text: "Learn More →" }
+    },
+
+    {
         date: "2026-05-31",
         title: "Toronto Walk to Make Cystic Fibrosis History",
         badge: "Fundraiser",
