@@ -1,0 +1,47 @@
+WHIMSY WORKS — MISSING IMAGES TO-DO
+Last checked: 2026-07-13
+
+This is every <img>/data-image reference on the site that doesn't point to a
+real file yet (checked src=, href=, data-images=, data-img=, and CSS url() —
+nothing else is broken). Drop a photo in at the exact path listed, run
+`python scripts/compress_images.py`, and it's live — no HTML editing needed.
+
+PAGE HERO BANNERS (top background image, one per page)
+  [ ] images/book-hero.jpg            — book.html
+  [ ] images/other-hero.jpg           — more-characters.html
+  [ ] images/princess-hero.jpg        — princesses.html
+  [ ] images/superhero-hero.jpg       — superheros.html
+  [ ] images/volunteer-hero.jpg       — volunteer.html
+
+SECOND GALLERY PHOTO (character card slideshow, photo #2)
+  [ ] images/aurora/2.jpg
+  [ ] images/snow-white/2.jpg
+  [ ] images/cinderella/2.jpg
+
+OUTFIT VARIANT PHOTOS (princesses.html "see more" outfit switcher)
+  [ ] images/merida/outfit-highland.png      — Highland Outfit
+  [ ] images/belle/outfit-ballgown.png       — Golden Ballgown
+  [ ] images/aurora/outfit-pink.png          — Pink Gown
+  [ ] images/snow-white/outfit-classic.png   — Classic Dress
+  [ ] images/cinderella/outfit-classic.png   — Classic Animation
+  [ ] images/cinderella/outfit-live-action.png — Live Action
+
+OTHER CHARACTER CARDS
+  [ ] images/other-pirate.jpg          — Pirate Captain (more-characters.html)
+  [ ] images/superhero-superman.jpg    — Superman
+  [ ] images/superhero-super.jpg       — Supergirl ("The Girl of Steel")
+  [ ] images/superhero-wonder.jpg      — Wonder Woman ("The Amazon Warrior")
+  [ ] images/superhero-batgirl.jpg     — Batgirl
+
+--------------------------------------------------------------------------
+HEADS UP — possible fix instead of new upload:
+
+images/hero-superman.webp and images/hero-supergirl.webp already exist on
+disk but are byte-for-byte identical (same photo uploaded twice under two
+names) AND neither is referenced anywhere in the HTML. They were probably
+meant for the Superman / Supergirl slots above. Either:
+  a) rename/move one into images/superhero-superman.jpg (pre-compression)
+     and upload a real, different photo for Supergirl, or
+  b) treat both as unrelated leftovers and upload fresh photos for both
+     slots.
+Ask before assuming which — don't want to guess wrong on a live site.
