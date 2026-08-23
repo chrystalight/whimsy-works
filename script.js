@@ -142,20 +142,40 @@ document.addEventListener('DOMContentLoaded', function() {
         if (pastGroup) pastGroup.style.display = past.length === 0 ? 'none' : '';
     }
 
-    // Show filename labels on placeholder images
-    document.querySelectorAll('img').forEach(img => {
-        img.addEventListener('error', function() {
-            const src = this.getAttribute('src');
-            if (src && src.startsWith('images/')) {
-                const filename = src.replace('images/', '');
-                const wrapper = document.createElement('div');
-                wrapper.className = 'placeholder-image';
-                wrapper.innerHTML = `<span class="placeholder-label">${filename}</span>`;
-                this.parentNode.insertBefore(wrapper, this);
-                wrapper.appendChild(this);
-            }
-        });
-    });
+    // Missing images: hero banners just fade quietly into their overlay
+    // (no icon, no label); everything else gets a friendly placeholder
+    // instead of a raw filename, which read as unfinished/debug-y.
+    function handleMissingImage(img) {
+        const src = img.getAttribute('src');
+        if (!src || !src.startsWith('images/')) return;
+
+        if (img.classList.contains('page-hero-bg')) {
+            img.style.display = 'none';
+            return;
+        }
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'placeholder-image';
+        wrapper.innerHTML = `<span class="placeholder-label">✨ Imagine a really cute picture here — we're adding it soon!</span>`;
+        img.parentNode.insertBefore(wrapper, img);
+        wrapper.appendChild(img);
+    }
+
+    // Also used below for images created later by the slideshow/outfit-switcher
+    // code (card-slideshow, expand-gallery, outfit fan) — those <img> tags
+    // don't exist yet at this point, so each must opt in when it's created.
+    function watchForMissingImage(img) {
+        // The error may already have fired (e.g. a local/missing file resolves
+        // before this script runs at the bottom of the page), so check the
+        // already-failed state too instead of only listening for future errors.
+        if (img.complete && img.naturalWidth === 0 && img.getAttribute('src')) {
+            handleMissingImage(img);
+        } else {
+            img.addEventListener('error', () => handleMissingImage(img));
+        }
+    }
+
+    document.querySelectorAll('img').forEach(watchForMissingImage);
 
     // Slideshow functionality
     const slides = document.querySelectorAll('.slide');
@@ -305,6 +325,7 @@ document.addEventListener('DOMContentLoaded', function() {
             img.className = 'expand-slide' + (i === 0 ? ' active' : '');
             img.addEventListener('click', () => showExpandSlide(current + 1));
             gallery.insertBefore(img, prevBtn);
+            watchForMissingImage(img);
             slides.push(img);
         });
 
@@ -329,6 +350,7 @@ document.addEventListener('DOMContentLoaded', function() {
             img.alt = container.closest('.character-card').querySelector('h2')?.textContent || 'Character photo';
             img.className = 'card-slide' + (i === 0 ? ' active' : '');
             container.appendChild(img);
+            watchForMissingImage(img);
             return img;
         });
 
@@ -395,11 +417,15 @@ document.addEventListener('DOMContentLoaded', function() {
         const buttons = Array.from(section.querySelectorAll('.outfit-btn'));
         if (!singlePreview || buttons.length === 0) return;
 
-        // Build stacked image set
+        // Build stacked image set. If the initial preview already failed to
+        // load, our missing-image handler will have wrapped it in a
+        // .placeholder-image div by now — swap out the whole wrapper so its
+        // label doesn't linger next to the new fan of images.
+        const existingWrapper = singlePreview.closest('.placeholder-image') || singlePreview;
         const stack = document.createElement('div');
         stack.className = 'outfit-preview-stack';
-        singlePreview.parentNode.insertBefore(stack, singlePreview);
-        singlePreview.remove();
+        existingWrapper.parentNode.insertBefore(stack, existingWrapper);
+        existingWrapper.remove();
 
         const images = buttons.map((btn, i) => {
             const img = document.createElement('img');
@@ -407,6 +433,7 @@ document.addEventListener('DOMContentLoaded', function() {
             img.alt = btn.textContent.trim() + ' outfit';
             img.className = 'outfit-preview' + (btn.classList.contains('active') ? ' active' : '');
             stack.appendChild(img);
+            watchForMissingImage(img);
             return img;
         });
 
@@ -433,6 +460,102 @@ document.addEventListener('DOMContentLoaded', function() {
 
         buttons.forEach((btn, i) => btn.addEventListener('click', () => activate(i)));
     });
+
+    // Character gallery pages — "Book Now" carries the character (and, for
+    // princesses, whichever outfit is currently selected) into the booking
+    // form via the URL, since it's a separate page load.
+    document.querySelectorAll('.character-gallery-page a.btn-secondary[href="book.html"]').forEach(link => {
+        link.addEventListener('click', function(e) {
+            const wrapper = this.closest('.character-card-wrapper') || this.closest('.character-card');
+            const activeOutfitBtn = wrapper?.querySelector('.outfit-btn.active');
+
+            // Princess cards put the actual character name in the subtitle
+            // (the h2 is a flavor title like "The Snow Queen"); other cards
+            // put the name in the h2 itself.
+            const nameEl = activeOutfitBtn
+                ? wrapper.querySelector('.character-subtitle')
+                : wrapper?.querySelector('h2');
+            if (!nameEl) return;
+
+            let character = nameEl.textContent.trim();
+
+            if (activeOutfitBtn) {
+                character += ` (${activeOutfitBtn.textContent.trim()} outfit)`;
+            }
+
+            e.preventDefault();
+            window.location.href = `book.html?character=${encodeURIComponent(character)}#request-a-visit`;
+        });
+    });
+
+    // Booking form — pre-fill the requested character from a "Book Now" link
+    // (the #request-a-visit fragment in the URL handles scrolling there)
+    const characterInput = document.getElementById('character');
+    if (characterInput) {
+        const requestedCharacter = new URLSearchParams(window.location.search).get('character');
+        if (requestedCharacter) {
+            characterInput.value = requestedCharacter;
+        }
+    }
+
+    // Booking form — visit-type selector drives package options + a note,
+    // and the access-section CTA buttons pre-select a visit type and scroll down
+    const visitTypeSelect = document.getElementById('visit-type');
+    const visitTypeNote = document.getElementById('visit-type-note');
+    const packageSelect = document.getElementById('package');
+
+    if (visitTypeSelect && visitTypeNote && packageSelect) {
+        const FREE_FAMILY_PACKAGE = 'Free 1-Hour Family Visit (60 min) — No Cost';
+
+        const NOTES = {
+            'Charity or Hospital Visit (Free)': '✨ As a registered charity or hospital, your visit is provided at no cost. Choose the package below for the experience length and activities you\'d like — we\'ll confirm the fee is waived when we follow up.',
+            'Non-Profit / Community Event (Discounted)': '💛 Non-profits, schools, and community events receive a discounted rate. Choose a package below and we\'ll confirm your discounted total when we follow up.',
+            'Family of a Child in Need (Free 1-Hour Visit)': '💫 Families of a child in need always receive a free one-hour visit — no payment, ever. We\'ve selected that below for you.'
+        };
+
+        function ensureFamilyPackageOption() {
+            if (!packageSelect.querySelector(`option[value="${FREE_FAMILY_PACKAGE}"]`)) {
+                const opt = document.createElement('option');
+                opt.value = FREE_FAMILY_PACKAGE;
+                opt.textContent = FREE_FAMILY_PACKAGE;
+                packageSelect.appendChild(opt);
+            }
+        }
+
+        function removeFamilyPackageOption() {
+            const opt = packageSelect.querySelector(`option[value="${FREE_FAMILY_PACKAGE}"]`);
+            if (opt) opt.remove();
+        }
+
+        function applyVisitType(value) {
+            visitTypeSelect.value = value;
+            const note = NOTES[value];
+
+            if (note) {
+                visitTypeNote.textContent = note;
+                visitTypeNote.style.display = 'block';
+            } else {
+                visitTypeNote.style.display = 'none';
+            }
+
+            if (value === 'Family of a Child in Need (Free 1-Hour Visit)') {
+                ensureFamilyPackageOption();
+                packageSelect.value = FREE_FAMILY_PACKAGE;
+            } else {
+                removeFamilyPackageOption();
+            }
+        }
+
+        visitTypeSelect.addEventListener('change', () => applyVisitType(visitTypeSelect.value));
+
+        document.querySelectorAll('.access-cta[data-visit-type]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                applyVisitType(btn.getAttribute('data-visit-type'));
+                document.getElementById('request-a-visit').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                document.getElementById('name')?.focus({ preventScroll: true });
+            });
+        });
+    }
 
     // Booking form — Web3Forms async submission
     const bookingForm = document.getElementById('booking-form');

@@ -1242,14 +1242,15 @@ h1, h2, h3, h4 {
     transform: translate(-50%, -50%);
     background-color: rgba(139, 90, 139, 0.9);
     color: white;
-    padding: 0.5rem 1rem;
+    padding: 0.6rem 1.1rem;
     border-radius: 8px;
-    font-family: monospace;
-    font-size: 0.9rem;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
     font-weight: 600;
+    line-height: 1.4;
     text-align: center;
     pointer-events: none;
-    white-space: nowrap;
+    width: 85%;
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
@@ -1892,6 +1893,119 @@ h1, h2, h3, h4 {
     font-size: 0.95rem;
 }
 
+/* Community & Charity Access */
+.access-section {
+    padding: 4rem 0;
+    background: linear-gradient(to bottom, var(--color-lavender) 0%, #ffffff 100%);
+    text-align: center;
+}
+
+.access-section h2 {
+    font-size: 2rem;
+    color: var(--color-primary-dark);
+    margin-bottom: 0.75rem;
+}
+
+.access-intro {
+    color: var(--color-gray);
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.access-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+}
+
+.access-card {
+    background-color: var(--color-white);
+    border: 2px solid var(--color-gray-light);
+    border-radius: 16px;
+    padding: 2rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: var(--transition);
+}
+
+.access-card:hover {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-5px);
+}
+
+.access-icon {
+    color: var(--color-primary);
+    margin-bottom: 0.9rem;
+}
+
+.access-badge {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 0.25rem 0.9rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 0.9rem;
+}
+
+.access-badge-discount {
+    background-color: var(--color-secondary);
+}
+
+.access-card h3 {
+    font-size: 1.25rem;
+    color: var(--color-dark);
+    margin-bottom: 0.6rem;
+}
+
+.access-card p {
+    color: var(--color-gray);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.access-cta {
+    margin-top: auto;
+    font-size: 0.9rem;
+    padding: 0.7rem 1.5rem;
+}
+
+.packages-note {
+    text-align: center;
+    color: var(--color-gray);
+    font-size: 0.95rem;
+    margin-top: -1.75rem;
+    margin-bottom: 2.5rem;
+}
+
+.packages-note a {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.packages-note a:hover {
+    text-decoration: underline;
+}
+
+.visit-type-note {
+    margin-top: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 167, 160, 0.15);
+    border-left: 3px solid var(--color-accent);
+    border-radius: 0 8px 8px 0;
+    font-size: 0.88rem;
+    color: var(--color-primary-dark);
+    line-height: 1.5;
+}
+
 .packages {
     padding: 5rem 0;
 }
@@ -1995,6 +2109,28 @@ h1, h2, h3, h4 {
     color: var(--color-gray);
     font-size: 0.9rem;
     line-height: 1.6;
+}
+
+.reviews-section {
+    padding: 4rem 0;
+    text-align: center;
+    background: linear-gradient(to bottom, #ffffff 0%, var(--color-lavender) 100%);
+}
+
+.reviews-section h2 {
+    font-size: 2rem;
+    color: var(--color-primary-dark);
+    margin-bottom: 0.75rem;
+}
+
+.reviews-intro {
+    color: var(--color-gray);
+    margin-bottom: 2rem;
+}
+
+.reviews-widget-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .booking-form-section {

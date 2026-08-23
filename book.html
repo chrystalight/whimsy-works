@@ -42,10 +42,34 @@
         <img src="images/book-hero.jpg" alt="Character performer at a party" class="page-hero-bg">
     </section>
 
-    <!-- Info Banner -->
-    <section class="info-banner">
+    <!-- Community & Charity Access -->
+    <section class="access-section" id="access-section">
         <div class="container">
-            <p> Requesting a visit on behalf of a child in need, a hospital visit, or a charitable event? Fill out our request a visit  </p>
+            <h2>Every Child Deserves a Little Magic</h2>
+            <p class="access-intro">Cost should never be the reason a child misses out. Here's how we make that true — pick one below and we'll pre-fill your request.</p>
+            <div class="access-grid">
+                <div class="access-card">
+                    <div class="access-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+                    <div class="access-badge access-badge-free">Always Free</div>
+                    <h3>Charities &amp; Hospitals</h3>
+                    <p>Registered charities, children's hospitals, and hospice organizations never pay for a visit. That's the heart of what we do.</p>
+                    <button type="button" class="btn btn-secondary access-cta" data-visit-type="Charity or Hospital Visit (Free)">Request a Free Charity Visit</button>
+                </div>
+                <div class="access-card">
+                    <div class="access-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                    <div class="access-badge access-badge-discount">Discounted</div>
+                    <h3>Non-Profits &amp; Community Events</h3>
+                    <p>Non-profits, schools, and community events receive a reduced rate. Tell us about your event and we'll work out pricing together.</p>
+                    <button type="button" class="btn btn-secondary access-cta" data-visit-type="Non-Profit / Community Event (Discounted)">Request a Discounted Visit</button>
+                </div>
+                <div class="access-card">
+                    <div class="access-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+                    <div class="access-badge access-badge-free">Always Free</div>
+                    <h3>Families of a Child in Need</h3>
+                    <p>If your child is seriously ill or your family is facing a hard season, you always receive a free one-hour visit. No exceptions, no fine print.</p>
+                    <button type="button" class="btn btn-secondary access-cta" data-visit-type="Family of a Child in Need (Free 1-Hour Visit)">Request a Free Family Visit</button>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -53,6 +77,7 @@
     <section class="packages">
         <div class="container">
             <h2>Our Packages</h2>
+            <p class="packages-note">Standard pricing below — charities, non-profits, and families of a child in need may qualify for free or discounted visits. <a href="#access-section">See details above</a>.</p>
             <div class="packages-grid">
                 <!-- Meet and Greet -->
                 <div class="package-card">
@@ -111,8 +136,20 @@
         </div>
     </section>
 
+    <!-- Reviews Section -->
+    <section class="reviews-section">
+        <div class="container">
+            <h2>What Families Are Saying</h2>
+            <p class="reviews-intro">See our reviews on GigSalad.</p>
+            <div class="reviews-widget-wrapper">
+                <div id="gigsalad-reviews-widget"></div>
+                <script>var gsReviewWidget;(function(d,t){var s=d.createElement(t),options={path:'266916',maxWidth:600,count:3};s.src='https://www.gigsalad.com/js/gigsalad-reviews-widget.min.js';s.onload=s.onreadystatechange=function(){var rs=this.readyState;if(rs)if(rs!='complete')if(rs!='loaded')return;try{gsReviewWidget=new GsReviewsWidget(options);gsReviewWidget.display();}catch(e){}};var scr=d.getElementsByTagName(t)[0];var par=scr.parentNode;par.insertBefore(s,scr);})(document,'script');</script>
+            </div>
+        </div>
+    </section>
+
     <!-- Booking Form Section -->
-    <section class="booking-form-section">
+    <section class="booking-form-section" id="request-a-visit">
         <div class="container">
             <div class="form-wrapper">
                 <h2>Request a Booking</h2>
@@ -125,6 +162,17 @@
                     <input type="hidden" name="from_name" value="Whimsy Works Website">
                     <!-- Honeypot spam filter -->
                     <input type="checkbox" name="botcheck" style="display:none">
+
+                    <div class="form-group">
+                        <label for="visit-type">What's this visit for? *</label>
+                        <select id="visit-type" name="visit-type" required>
+                            <option value="Standard Paid Booking">Standard Paid Booking</option>
+                            <option value="Charity or Hospital Visit (Free)">Charity or Hospital Visit (Free)</option>
+                            <option value="Non-Profit / Community Event (Discounted)">Non-Profit / Community Event (Discounted)</option>
+                            <option value="Family of a Child in Need (Free 1-Hour Visit)">Family of a Child in Need (Free 1-Hour Visit)</option>
+                        </select>
+                        <p id="visit-type-note" class="visit-type-note" style="display:none;"></p>
+                    </div>
 
                     <div class="form-group">
                         <label for="name">Your Name *</label>
@@ -171,6 +219,18 @@
                     <div class="form-group">
                         <label for="character">Requested Character(s) *</label>
                         <input type="text" id="character" name="character" placeholder="e.g., Snow Sisters (Elsa & Anna), Spider Hero" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="how-heard">How did you hear about us?</label>
+                        <select id="how-heard" name="how-heard">
+                            <option value="">Select an option...</option>
+                            <option value="Through Starlight">Through Starlight</option>
+                            <option value="Through the Children's Book Bank">Through the Children's Book Bank</option>
+                            <option value="Another charity event">Another charity event</option>
+                            <option value="Heard from a friend">Heard from a friend</option>
+                            <option value="Other">Other</option>
+                        </select>
                     </div>
 
                     <div class="form-group">

@@ -33,7 +33,11 @@
       "PowerShell(Get-NetTCPConnection *)",
       "Bash(mkdir -p /tmp/shots)",
       "Bash('/c/Program Files/Google/Chrome/Application/chrome.exe' --headless=new --disable-gpu --no-sandbox --virtual-time-budget=3000 --window-size=1300,1600 --screenshot=/tmp/shots/editor.png http://127.0.0.1:5390/)",
-      "Bash(curl -sf http://127.0.0.1:5390/)"
+      "Bash(curl -sf http://127.0.0.1:5390/)",
+      "Bash(awk '$1>1')",
+      "Bash(python -c \"import playwright; print\\('playwright available'\\)\")",
+      "Bash(pkill -f \"python -m http.server 8791\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:8790/images/book-hero.jpg)"
     ]
   }
 }
