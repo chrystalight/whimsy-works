@@ -1925,6 +1925,36 @@ h1, h2, h3, h4 {
     gap: 2rem;
 }
 
+/* Left-aligned info list (e.g. "How This Works") */
+.how-it-works {
+    background: linear-gradient(to bottom, var(--color-sky) 0%, #ffffff 100%);
+}
+
+.info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 720px;
+    text-align: left;
+    display: grid;
+    gap: 1rem;
+}
+
+.info-list li {
+    background-color: var(--color-white);
+    border: 2px solid var(--color-gray-light);
+    border-left: 4px solid var(--color-secondary);
+    border-radius: 12px;
+    padding: 1.1rem 1.25rem;
+    color: var(--color-gray);
+    line-height: 1.6;
+    box-shadow: var(--shadow-sm);
+}
+
+.info-list li strong {
+    color: var(--color-primary-dark);
+}
+
 .access-card {
     background-color: var(--color-white);
     border: 2px solid var(--color-gray-light);
