@@ -644,6 +644,8 @@ strong { font-weight: 700; }
 .friends-row img {
     height: 64px;
     width: auto;
+    max-width: 210px;
+    object-fit: contain;
     mix-blend-mode: multiply;
     filter: saturate(0.85);
 }
