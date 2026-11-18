@@ -8,40 +8,24 @@ document.addEventListener('DOMContentLoaded', function() {
     const nav = document.querySelector('.nav');
 
     if (mobileMenuBtn && nav) {
-        mobileMenuBtn.addEventListener('click', function() {
-            this.classList.toggle('active');
-            nav.classList.toggle('active');
-        });
+        function setMenu(open) {
+            mobileMenuBtn.classList.toggle('active', open);
+            nav.classList.toggle('active', open);
+            mobileMenuBtn.setAttribute('aria-expanded', String(open));
+        }
+
+        mobileMenuBtn.addEventListener('click', () => setMenu(!nav.classList.contains('active')));
 
         // Close menu when clicking on a link
         nav.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function() {
-                mobileMenuBtn.classList.remove('active');
-                nav.classList.remove('active');
-            });
+            link.addEventListener('click', () => setMenu(false));
         });
 
         // Close menu when clicking outside
         document.addEventListener('click', function(e) {
-            if (!nav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-                mobileMenuBtn.classList.remove('active');
-                nav.classList.remove('active');
-            }
+            if (!nav.contains(e.target) && !mobileMenuBtn.contains(e.target)) setMenu(false);
         });
     }
-
-    // Header scroll effect
-    const header = document.querySelector('.header');
-    let lastScrollY = window.scrollY;
-
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 100) {
-            header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-        } else {
-            header.style.boxShadow = '0 1px 2px rgba(0, 0, 0, 0.05)';
-        }
-        lastScrollY = window.scrollY;
-    });
 
     // Smooth scroll for anchor links (backup for browsers without CSS smooth scroll)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -60,36 +44,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Simple fade-in animation on scroll
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-
-    // Observe sections for animation
-    document.querySelectorAll('.character-category, .custom-content, .cta').forEach(section => {
-        section.style.opacity = '0';
-        section.style.transform = 'translateY(20px)';
-        section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(section);
-    });
-
-    // Update copyright year automatically
-    const copyrightYear = document.querySelector('.footer-bottom p');
-    if (copyrightYear) {
-        const currentYear = new Date().getFullYear();
-        copyrightYear.textContent = copyrightYear.textContent.replace('2024', currentYear);
-    }
+    // Keep the footer's copyright year current
+    const footerYear = document.querySelector('.footer-year');
+    if (footerYear) footerYear.textContent = new Date().getFullYear();
 
     // Events calendar — data lives in events-data.js. Upcoming/past and the
     // sort order are computed here from each event's date, so nothing ever
@@ -176,49 +133,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     document.querySelectorAll('img').forEach(watchForMissingImage);
-
-    // Slideshow functionality
-    const slides = document.querySelectorAll('.slide');
-    const dots = document.querySelectorAll('.dot');
-    const prevBtn = document.querySelector('.slide-arrow.prev');
-    const nextBtn = document.querySelector('.slide-arrow.next');
-
-    if (slides.length > 0) {
-        let currentSlide = 0;
-
-        function showSlide(index) {
-            // Wrap around
-            if (index >= slides.length) index = 0;
-            if (index < 0) index = slides.length - 1;
-
-            // Hide all slides
-            slides.forEach(slide => slide.classList.remove('active'));
-            dots.forEach(dot => dot.classList.remove('active'));
-
-            // Show current slide
-            slides[index].classList.add('active');
-            dots[index].classList.add('active');
-            currentSlide = index;
-        }
-
-        // Arrow navigation
-        if (prevBtn) {
-            prevBtn.addEventListener('click', () => showSlide(currentSlide - 1));
-        }
-        if (nextBtn) {
-            nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
-        }
-
-        // Dot navigation
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => showSlide(index));
-        });
-
-        // Auto-advance every 6 seconds
-        setInterval(() => {
-            showSlide(currentSlide + 1);
-        }, 6000);
-    }
 
     // Lightbox functionality
     const lightbox = document.getElementById('lightbox');
@@ -596,7 +510,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const sparkleChars = ['\u2728', '\u2B50', '\u00B7', '\u2736', '\u2022'];
     const sparkleColors = ['#937288', '#FFA7A0', '#A0CBD4', '#D67A74', '#7192A6'];
     let lastSparkle = 0;
+    // Skip the trail for visitors whose devices ask for less motion
+    const calmMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     document.addEventListener('mousemove', function(e) {
+        if (calmMotion.matches) return;
         const now = Date.now();
         if (now - lastSparkle < 50) return;
         lastSparkle = now;

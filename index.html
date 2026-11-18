@@ -5,268 +5,270 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Whimsy Works - Magic for the kids who need it the most</title>
     <link rel="icon" type="image/png" href="images/shield.webp">
-    <meta name="description" content="Whimsy Works provides high-end, theme-park quality character experiences to pediatric hospitals, fundraisers, and community events at absolutely no cost.">
+    <meta name="description" content="Whimsy Works is a volunteer-run nonprofit bringing handmade, theme-park quality character visits to pediatric hospitals, fundraisers, and community events across Ontario at no cost.">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Caveat:wght@500..700&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400..800,0..100,0..1;1,9..144,400..800,0..100,0..1&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Header -->
     <header class="header">
         <div class="header-container">
-            <a href="index.html" class="logo"><img src="images/shield.webp" alt="Whimsy Works" class="logo-img">Whimsy Works</a>
-            <button class="mobile-menu-btn" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
+            <a href="index.html" class="logo"><img src="images/shield.webp" alt="" class="logo-img" width="44" height="44">Whimsy Works</a>
+            <button class="mobile-menu-btn" aria-label="Menu" aria-expanded="false">
+                <span></span><span></span><span></span>
             </button>
-            <nav class="nav">
+            <nav class="nav" aria-label="Main">
                 <a href="princesses.html" class="nav-link">Princesses</a>
                 <a href="superheros.html" class="nav-link">Superheroes</a>
-                <a href="more-characters.html" class="nav-link">Other Characters</a>
-                <a href="events.html" class="nav-link">Event Calendar</a>
+                <a href="more-characters.html" class="nav-link">More Characters</a>
+                <a href="events.html" class="nav-link">Events</a>
                 <a href="book.html" class="nav-link">Book a Visit</a>
                 <a href="volunteer.html" class="nav-link btn-primary">Volunteer</a>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1>Magic, for the kids who need it the most.</h1>
-            <p class="hero-caption">A volunteer-run nonprofit bringing theme-park quality character experiences to pediatric hospitals and community events at no cost.</p>
-            <a href="book.html" class="btn btn-hero">Book a Visit</a>
-        </div>
-        <!-- Replace src with your hero image -->
-        <img src="images/blank-hero-bg.webp" alt="Character performers bringing joy to children" class="hero-bg">
-    </section>
-
-    <!-- Notice Banner (remove when site is complete) -->
-    <section class="notice-banner">
-        <div class="container">
-            <p>Our site is currently under construction! For any inquiries, please email us at <a href="mailto:info@whimsyworks.ca">info@whimsyworks.ca</a></p>
-        </div>
-    </section>
-
-    <!-- Grant Announcement -->
-    <section class="grant-banner">
-        <div class="container">
-            <p>✨ We're proud recipients of a <strong>Civic Spark Grant</strong> from Volunteer Toronto! <a href="https://info.volunteertoronto.ca/civicspark2026" target="_blank" rel="noopener">Learn more about the Civic Spark program →</a></p>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-image">
-                    <img src="images/catie.webp" alt="Whimsy Works Princesses">
+    <main>
+        <!-- Hero -->
+        <section class="home-hero">
+            <div class="container home-hero-grid">
+                <div class="home-hero-text">
+                    <p class="kicker">volunteer-run &amp; Ontario-grown</p>
+                    <h1>Magic, for the kids who <span class="squiggle">need it the most.</span></h1>
+                    <p class="lede">We're a crew of volunteer performers and costume makers who show up as princesses, superheroes, and storybook friends at pediatric hospitals, fundraisers, and community events. Hospital and charity visits never cost a thing.</p>
+                    <div class="btn-row">
+                        <a href="book.html" class="btn btn-primary">Book a visit</a>
+                        <a href="volunteer.html" class="btn btn-ghost">Join the crew</a>
+                    </div>
+                    <p class="hero-note">
+                        <span class="hand" aria-hidden="true">yay!</span>
+                        <span>We're proud recipients of a <strong>Civic Spark Grant</strong> from Volunteer Toronto. <a href="https://info.volunteertoronto.ca/civicspark2026" target="_blank" rel="noopener">About the program</a></span>
+                    </p>
                 </div>
-                <div class="about-content">
-                    
-                    <p>Whimsy Works began with a handful of cosplayers at the Toronto Children’s Book Bank and has since grown into a province-wide collective of artists and volunteers. Our team handmakes and maintain dozens of size-inclusive, theme-park quality costumes, and we work with charitable organizations, non-profits, and families across Ontario. </p>
 
-                    <p>Whimsy Works is entirely volunteer-run. 85% of our visits are dedicated to charitable work and non-profit partnerships. By choosing us for your private events, you are directly providing accessible, high-quality experiences for families and organizations across Ontario.</p>
+                <div class="photo-pile">
+                    <svg class="doodle" viewBox="0 0 60 60" aria-hidden="true"><path d="M30 4 C 32 20, 36 26, 56 30 C 36 33, 32 40, 30 56 C 28 40, 24 33, 4 30 C 24 27, 28 20, 30 4 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/></svg>
+                    <figure class="snap taped pile-a">
+                        <img src="images/event-4.webp" alt="Cinderella, Rapunzel, and Ariel leaning down to greet a toddler at the Breakthrough T1D Toronto Walk">
+                        <figcaption>T1D Walk, 2025</figcaption>
+                    </figure>
+                    <figure class="snap taped tape-sky pile-b">
+                        <img src="images/catie.webp" alt="Anna and Elsa holding hands by the water at sunset">
+                        <figcaption>sisters, at golden hour</figcaption>
+                    </figure>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Making Magic Across Ontario Section -->
-    <section class="impact-section" id="impact">
-        <div class="container">
-            <h2>Making Magic Across Ontario</h2>
-            <div class="slideshow-container">
-                <!-- Slide 1 -->
-                <div class="slide active">
-                    <img src="images/event-1.webp" alt="Event photo">
-                    <div class="slide-caption">
-                        <p>Taylor Swift was one of twenty characters from Whimsy Works to join Starlight Children's Foundation at their 2025 Trick or Suite event, an annual accessible halloween event in Aurora.</p>
+        <!-- Our story -->
+        <section class="section section-alt" id="about">
+            <div class="container story-grid">
+                <figure class="snap taped tape-coral story-photo">
+                    <img src="images/event-3.webp" alt="Elsa, Anna, and Tinker Bell posing with a family at the Walk to Make Cystic Fibrosis History">
+                    <figcaption>CF Walk crew, 2025</figcaption>
+                </figure>
+                <div class="story-text">
+                    <p class="kicker">how it started</p>
+                    <h2>A handful of cosplayers at a children's book bank.</h2>
+                    <p>That's where Whimsy Works began: a few of us in costume at the Toronto Children's Book Bank. It has since grown into a province-wide collective of artists and volunteers.</p>
+                    <p>We handmake and maintain dozens of size-inclusive costumes ourselves, and we work with charities, non-profits, and families across Ontario. Nobody here is paid. We do it because we've seen what happens when a princess walks into a hospital room.</p>
+                    <div class="big-stat stitched">
+                        <span class="num">85%</span>
+                        <p>of our visits are for charities and non-profit partners. When you book us for a private party, you're helping pay for the rest.</p>
                     </div>
                 </div>
-                <!-- Slide 2 -->
-                <div class="slide">
-                    <img src="images/event-2.webp" alt="Event photo">
-                    <div class="slide-caption">
-                        <p>Elsa visited the children's cancer wing of Trinity Memorial Hospital in Port Credit, in honor of Children's Cancer Awareness month in 2024.</p>
+            </div>
+        </section>
+
+        <!-- Scrapbook -->
+        <section class="section" id="moments">
+            <div class="container">
+                <div class="section-head">
+                    <p class="kicker">from the scrapbook</p>
+                    <h2>Making magic across Ontario</h2>
+                </div>
+                <div class="scrapbook">
+                    <figure class="snap taped">
+                        <img src="images/event-1.webp" alt="Taylor Swift playing guitar for a young boy and his mom at Trick or Suite">
+                        <figcaption>Trick or Suite, Aurora · 2025
+                            <small>Taylor Swift was one of twenty Whimsy Works characters at Starlight Children's Foundation's accessible Halloween event.</small>
+                        </figcaption>
+                    </figure>
+                    <figure class="snap taped tape-sky">
+                        <img src="images/event-2.webp" alt="Elsa visiting the children's cancer wing at Trinity Memorial Hospital">
+                        <figcaption>Children's Cancer Awareness Month · 2024
+                            <small>Elsa visited the children's cancer wing of Trinity Memorial Hospital in Port Credit.</small>
+                        </figcaption>
+                    </figure>
+                    <figure class="snap taped tape-coral">
+                        <img src="images/event-5.webp" alt="Rapunzel making crafts with children at the Breakthrough T1D Toronto Walk">
+                        <figcaption>Breakthrough T1D Walk · 2025
+                            <small>Rapunzel helped families make crafts at the Team JDRF table.</small>
+                        </figcaption>
+                    </figure>
+                    <figure class="snap taped">
+                        <img src="images/event-6.webp" alt="Cinderella and Rapunzel walking through the Breakthrough T1D Toronto Walk">
+                        <figcaption>Breakthrough T1D Walk · 2025
+                            <small>Cinderella and Rapunzel wandered the route, meeting families all along the way.</small>
+                        </figcaption>
+                    </figure>
+                </div>
+                <p class="scrapbook-foot"><a href="events.html" class="btn btn-secondary">See where we're headed next</a></p>
+            </div>
+        </section>
+
+        <!-- Notes from families -->
+        <section class="section section-alt">
+            <div class="container">
+                <div class="section-head center">
+                    <p class="kicker">notes we've kept</p>
+                    <h2>From the families</h2>
+                </div>
+                <div class="notes-grid">
+                    <figure class="note taped tape-sky">
+                        <blockquote>"Thank you for all you do and thank your actors for putting smiles on our rare babies' faces. Nothing makes me happier than seeing my sons experience these things together."</blockquote>
+                        <cite>— parent of a boy with Pallister-Killian Syndrome</cite>
+                    </figure>
+                    <figure class="note taped tape-coral">
+                        <blockquote>"Seeing the kids light up with excitement reminded us all of the power of inclusion, fun, and connection."</blockquote>
+                        <cite>— a Starlight family</cite>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- Characters -->
+        <section class="section" id="characters">
+            <div class="container">
+                <div class="section-head">
+                    <p class="kicker">who might knock on your door</p>
+                    <h2>Meet the cast</h2>
+                </div>
+                <div class="cast-grid">
+                    <a href="princesses.html" class="cast-card">
+                        <figure class="snap taped"><img src="images/princess-3.webp" alt="Elsa"></figure>
+                        <h3>Fairytale princesses</h3>
+                        <p>Elsa, Anna, Belle, Ariel, Rapunzel and the rest of the royal court, with songs, stories, and games.</p>
+                        <span class="more">Meet the princesses →</span>
+                    </a>
+                    <a href="superheros.html" class="cast-card">
+                        <figure class="snap taped tape-sky"><img src="images/hero-1.webp" alt="Spider-Man"></figure>
+                        <h3>Comic book superheroes</h3>
+                        <p>Spider-Man, Spider-Gwen, Captain America, Wonder Woman and friends, ready for hero training.</p>
+                        <span class="more">Meet the heroes →</span>
+                    </a>
+                    <a href="more-characters.html" class="cast-card">
+                        <figure class="snap taped tape-coral"><img src="images/other-1.webp" alt="Taylor Swift"></figure>
+                        <h3>Everyone else</h3>
+                        <p>Pop stars, demon hunters, Pixie Hollow fairies, Wicked witches, and a couple of dragon-riding Vikings.</p>
+                        <span class="more">See who else →</span>
+                    </a>
+                </div>
+                <div class="custom-note">
+                    <span class="hand">Don't see your kid's favourite?</span>
+                    <p>We take custom character requests, whether they're from a movie, a book, or somebody's imagination. <a href="mailto:info@whimsyworks.ca?subject=Custom%20Character%20Request">Tell us who</a> and we'll do our best.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Who pays for what -->
+        <section class="section section-alt" id="how-it-works">
+            <div class="container">
+                <div class="section-head">
+                    <p class="kicker">how it works</p>
+                    <h2>Cost should never be why a kid misses out</h2>
+                    <p>Money from paid parties supports our volunteers and keeps the costumes mended, so the visits that matter most can stay free.</p>
+                </div>
+                <div class="ways-grid">
+                    <div class="way stitched">
+                        <span class="tag tag-free">always free</span>
+                        <h3>Hospitals &amp; charities</h3>
+                        <p>Registered charities, children's hospitals, and hospice organizations never pay for a visit.</p>
+                    </div>
+                    <div class="way stitched">
+                        <span class="tag tag-free">always free</span>
+                        <h3>Families of a child in need</h3>
+                        <p>If your child is seriously ill or your family is going through a hard season, you get a free one-hour visit. No fine print.</p>
+                    </div>
+                    <div class="way stitched">
+                        <span class="tag tag-discount">discounted</span>
+                        <h3>Non-profits, schools &amp; community events</h3>
+                        <p>Tell us about your event and we'll work out a reduced rate together.</p>
+                    </div>
+                    <div class="way stitched">
+                        <span class="tag tag-paid">from $150</span>
+                        <h3>Birthdays &amp; private parties</h3>
+                        <p>Meet-and-greets, playdates, and full royal balls. Every booking helps fund a free visit somewhere else.</p>
                     </div>
                 </div>
-                <!-- Slide 3 -->
-                <div class="slide">
-                    <img src="images/event-3.webp" alt="Event photo">
-                    <div class="slide-caption">
-                        <p>Elsa, Anna, and Tinkerbelle brought some fairytale magic to the annual Walk to Change Cystic Fibrosis History, hosted by CF Canada in 2025.</p>
+                <div class="ways-foot"><a href="book.html" class="btn btn-primary">Request a visit</a></div>
+            </div>
+        </section>
+
+        <!-- Friends -->
+        <section class="friends">
+            <div class="container">
+                <h2>friends we've worked with</h2>
+                <div class="friends-row">
+                    <img src="images/partner-2.webp" alt="Starlight Children's Foundation Canada">
+                    <img src="images/partner-3.webp" alt="Cystic Fibrosis Canada">
+                    <img src="images/partner-4.webp" alt="The Children's Book Bank" class="square">
+                    <img src="images/partner-1.webp" alt="Romero House">
+                </div>
+            </div>
+        </section>
+
+        <!-- Join us -->
+        <section class="section">
+            <div class="container join-grid">
+                <div class="join-art">
+                    <img src="images/blank-hero-bg.webp" alt="Spider-Man and the Scarlet Witch playing with two young kids, one wearing a superhero cape">
+                </div>
+                <div class="join-text">
+                    <p class="kicker">pull up a chair</p>
+                    <h2>Want to put on the gown, or the cape?</h2>
+                    <p>We're always looking for performers, costume and makeup artists, event helpers, and people who are happy to wrangle a spreadsheet. Come as much or as little as you can. There's no minimum commitment.</p>
+                    <div class="btn-row">
+                        <a href="volunteer.html" class="btn btn-primary">Volunteer with us</a>
+                        <a href="mailto:info@whimsyworks.ca" class="btn btn-ghost">Just say hi</a>
                     </div>
                 </div>
-                <!-- Slide 4 -->
-                <div class="slide">
-                    <img src="images/event-4.webp" alt="Cinderella, Rapunzel, and Ariel greeting a young child at the Breakthrough T1D Toronto Walk">
-                    <div class="slide-caption">
-                        <p>Cinderella, Rapunzel, and Ariel shared a magical moment with a young walker at the 2025 Breakthrough T1D Toronto Walk, in support of type 1 diabetes research.</p>
-                    </div>
-                </div>
-                <!-- Slide 5 -->
-                <div class="slide">
-                    <img src="images/event-5.webp" alt="Rapunzel making crafts with children at the Breakthrough T1D Toronto Walk">
-                    <div class="slide-caption">
-                        <p>Rapunzel helped families make crafts at the Team JDRF table during the 2025 Breakthrough T1D Toronto Walk.</p>
-                    </div>
-                </div>
-                <!-- Slide 6 -->
-                <div class="slide">
-                    <img src="images/event-6.webp" alt="Cinderella and Rapunzel walking through the Breakthrough T1D Toronto Walk">
-                    <div class="slide-caption">
-                        <p>Cinderella and Rapunzel wandered the 2025 Breakthrough T1D Toronto Walk, meeting families all along the route.</p>
-                    </div>
-                </div>
-                <!-- Navigation arrows -->
-                <button class="slide-arrow prev" aria-label="Previous slide">&#10094;</button>
-                <button class="slide-arrow next" aria-label="Next slide">&#10095;</button>
             </div>
-            <!-- Dots -->
-            <div class="slide-dots">
-                <span class="dot active" data-slide="0"></span>
-                <span class="dot" data-slide="1"></span>
-                <span class="dot" data-slide="2"></span>
-                <span class="dot" data-slide="3"></span>
-                <span class="dot" data-slide="4"></span>
-                <span class="dot" data-slide="5"></span>
-            </div>
-
-            <!-- Partners -->
-            <p class="partners-subtitle">Proud to partner with</p>
-            <div class="partners-grid">
-                <!-- Replace src with your partner logos -->
-                <img src="images/partner-1.webp" alt="Partner Organization 1">
-                <img src="images/partner-2.webp" alt="Partner Organization 2">
-                <img src="images/partner-3.webp" alt="Partner Organization 3">
-                <img src="images/partner-4.webp" alt="Partner Organization 4">
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-        <div class="container">
-            <div class="testimonials-grid">
-                <div class="testimonial">
-                    <blockquote>
-                        <p>"Thank you for all you do and thank your actors for putting smiles on our rare babies faces. Nothing makes me happier than seeing my sons experience these things together."</p>
-                    </blockquote>
-                    <cite>— Parent of a boy with Pallister-Killian Syndrome</cite>
-                </div>
-                <div class="testimonial">
-                    <blockquote>
-                        <p>"Seeing the kids light up with excitement reminded us all of the power of inclusion, fun, and connection."</p>
-                    </blockquote>
-                    <cite>— Parent of a Starlight Family</cite>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Characters Section -->
-    <section class="characters" id="characters">
-        <div class="container">
-            <h2 class="section-title">Our Character Family</h2>
-            <!-- Fairytale Princesses -->
-            <div class="character-category princesses-category">
-                <div class="category-content">
-                    <h2>Fairytale Princesses</h2>
-                    <p>Our enchanting princesses bring the magic of beloved fairytales to life.</p>
-                    <a href="princesses.html" class="btn btn-secondary">See Gallery</a>
-                </div>
-                <div class="category-gallery">
-                    <a href="princesses.html#anna"><img src="images/princess-1.webp" alt="Anna"></a>
-                    <a href="princesses.html#belle"><img src="images/princess-2.webp" alt="Belle"></a>
-                    <a href="princesses.html#elsa"><img src="images/princess-3.webp" alt="Elsa"></a>
-                </div>
-            </div>
-
-            <!-- Comic Book Superheroes -->
-            <div class="character-category reverse">
-                <div class="category-content">
-                    <h2>Comic Book Superheroes</h2>
-                    <p>Our heroes inspire courage and strength.</p>
-                    <a href="superheros.html" class="btn btn-secondary">See Gallery</a>
-                </div>
-                <div class="category-gallery">
-                    <a href="superheros.html#spiderman"><img src="images/hero-1.webp" alt="Spider-Man"></a>
-                    <a href="superheros.html#gwen"><img src="images/hero-2.webp" alt="Gwen Stacy"></a>
-                    <a href="superheros.html#captain-america"><img src="images/hero-3.webp" alt="Captain America"></a>
-                </div>
-            </div>
-
-            <!-- Other Characters -->
-            <div class="character-category">
-                <div class="category-content">
-                    <h2>Other Characters</h2>
-                    <p>Our cast includes a range of other characters, including pop stars, demon hunters, and many more unique characters.</p>
-                    <a href="more-characters.html" class="btn btn-secondary">See Gallery</a>
-                </div>
-                <div class="category-gallery">
-                    <a href="more-characters.html#taylor-swift"><img src="images/other-1.webp" alt="Taylor Swift"></a>
-                    <a href="more-characters.html#fairies"><img src="images/other-2.webp" alt="Fairies"></a>
-                    <a href="more-characters.html#kpop-demon-hunters"><img src="images/other-3.webp" alt="KPop Demon Hunters"></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Custom Requests Section -->
-    <section class="custom-requests" id="custom">
-        <div class="container">
-            <div class="custom-content">
-                <h2>Custom Character Requests</h2>
-                <p>Have a unique vision? We accept custom character requests! Whether it's a specific character from a movie, book, or your imagination, reach out to us and we'll do our best to bring your vision to life.</p>
-                <a href="mailto:info@whimsyworks.ca?subject=Custom%20Character%20Request" class="btn btn-primary">Get in Touch</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Call to Action Section -->
-    <section class="cta">
-        <div class="container">
-            <h2>Ready to bring some magic?</h2>
-            <p>Whether you're planning a party, organizing a fundraiser, or want to brighten a child's hospital stay, we're here to help.</p>
-            <div class="cta-buttons">
-                <a href="book.html" class="btn btn-hero">Book a Visit</a>
-                <a href="volunteer.html" class="btn btn-outline">Become a Volunteer</a>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <h3>Whimsy Works</h3>
-                    <p>Magic, for the kids who need it the most.</p>
-                </div>
-                <div class="footer-contact">
-                    <h4>Contact Us</h4>
-                    <a href="mailto:info@whimsyworks.ca">info@whimsyworks.ca</a>
-                </div>
-                <div class="footer-social">
-                    <h4>Follow Us</h4>
-                    <div class="social-links">
-                        <!-- Update these href values with your actual social media links -->
-                        <a href="https://facebook.com/WhimsyWorking" aria-label="Facebook" target="_blank" rel="noopener">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-                        </a>
-                        <a href="https://instagram.com/WhimsyWorking" aria-label="Instagram" target="_blank" rel="noopener">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                        </a>
-                    </div>
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <img src="images/shield.webp" alt="" class="footer-shield" width="64" height="64">
+                <div>
+                    <p class="footer-tagline">Magic, for the kids who need it the most.</p>
+                    <p class="footer-small">A volunteer-run nonprofit bringing characters to pediatric hospitals, fundraisers, and community events across Ontario.</p>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Whimsy Works. All rights reserved.</p>
+            <div class="footer-col">
+                <h4>Say hello</h4>
+                <ul>
+                    <li><a href="mailto:info@whimsyworks.ca">info@whimsyworks.ca</a></li>
+                    <li><a href="https://instagram.com/WhimsyWorking" target="_blank" rel="noopener">Instagram</a></li>
+                    <li><a href="https://facebook.com/WhimsyWorking" target="_blank" rel="noopener">Facebook</a></li>
+                </ul>
             </div>
+            <div class="footer-col">
+                <h4>Around the site</h4>
+                <ul>
+                    <li><a href="book.html">Book a visit</a></li>
+                    <li><a href="events.html">Event calendar</a></li>
+                    <li><a href="volunteer.html">Volunteer</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; <span class="footer-year">2026</span> Whimsy Works</p>
+            <p>Made by volunteers in Ontario ✦</p>
         </div>
     </footer>
 

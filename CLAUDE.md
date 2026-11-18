@@ -18,9 +18,9 @@ and community events across Ontario at no cost.
   `book.html`, `princesses.html`, `superheros.html`, `more-characters.html`,
   `volunteer.html`, `trickorsuite.html`, `trickorsuite-montreal.html`.
 - `styles.css` — all styling (shared across pages).
-- `script.js` — all interactivity: event rendering, homepage slideshow,
-  character galleries/outfit switchers, booking-form helpers, and a
-  friendly placeholder for missing images.
+- `script.js` — all interactivity: mobile menu, event rendering,
+  character galleries/outfit switchers, booking-form helpers, the sparkle
+  cursor trail, and a friendly placeholder for missing images.
 - `images/` — site images, served as **`.webp`**. Full-res originals are
   backed up under `images/originals/` (committed).
 - `scripts/` — helper scripts (see below).
@@ -37,12 +37,27 @@ and community events across Ontario at no cost.
 - When an event moves into the past, rewrite its `description` into a past-tense
   recap (see the 2025 entries for tone) and drop the now-unused `time`/`link`.
 
-## Homepage slideshow
+## Homepage scrapbook
 
-- The "Making Magic Across Ontario" slideshow in `index.html` is a set of
-  `.slide` divs plus matching `.dot` spans. `script.js` auto-counts them, so
-  **adding a slide just means adding one `.slide` and one `.dot`** — no JS
-  changes. Images use the `event-N.webp` naming convention.
+- The "Making magic across Ontario" section in `index.html` is a grid of
+  taped-up snapshots: each is one `<figure class="snap taped">` with an
+  `<img>` and a `<figcaption>` (short handwritten line + a `<small>` detail
+  sentence). **Adding a photo just means adding one `<figure>`** — no JS.
+  Optional `tape-sky` / `tape-coral` classes change the tape colour. Images use
+  the `event-N.webp` naming convention.
+
+## Look & feel
+
+- Warm paper background, flat colours pulled from the shield logo (sky,
+  coral, butter, mauve — tokens at the top of `styles.css`). No gradients.
+- Fonts: Fraunces (headings), Atkinson Hyperlegible (body), Caveat (the
+  handwritten notes/kickers). Every page loads the same Google Fonts link.
+- Reusable bits: `.snap` (polaroid), `.taped` (washi tape), `.stitched`
+  (card with a dashed seam), `.kicker` (handwritten line above a heading),
+  `.squiggle` (hand-drawn underline).
+- The header and footer are identical on every page; when changing one,
+  change all nine pages.
+- The sparkle cursor trail in `script.js` is beloved — keep it.
 
 ## Adding / updating images
 

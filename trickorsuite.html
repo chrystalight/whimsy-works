@@ -9,23 +9,21 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Caveat:wght@500..700&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400..800,0..100,0..1;1,9..144,400..800,0..100,0..1&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Header -->
     <header class="header">
         <div class="header-container">
-            <a href="index.html" class="logo"><img src="images/shield.webp" alt="Whimsy Works" class="logo-img">Whimsy Works</a>
-            <button class="mobile-menu-btn" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
+            <a href="index.html" class="logo"><img src="images/shield.webp" alt="" class="logo-img" width="44" height="44">Whimsy Works</a>
+            <button class="mobile-menu-btn" aria-label="Menu" aria-expanded="false">
+                <span></span><span></span><span></span>
             </button>
-            <nav class="nav">
+            <nav class="nav" aria-label="Main">
                 <a href="princesses.html" class="nav-link">Princesses</a>
                 <a href="superheros.html" class="nav-link">Superheroes</a>
-                <a href="more-characters.html" class="nav-link">Other Characters</a>
-                <a href="events.html" class="nav-link">Event Calendar</a>
+                <a href="more-characters.html" class="nav-link">More Characters</a>
+                <a href="events.html" class="nav-link">Events</a>
                 <a href="book.html" class="nav-link">Book a Visit</a>
                 <a href="volunteer.html" class="nav-link btn-primary">Volunteer</a>
             </nav>
@@ -36,6 +34,7 @@
     <section class="page-hero">
         <div class="page-hero-overlay"></div>
         <div class="page-hero-content">
+            <p class="kicker">volunteer call-out</p>
             <h1>Trick or Suite</h1>
             <p>November 7th, 3-7pm in Aurora</p>
             <a href="#register" class="btn btn-primary hero-cta">Register Your Interest</a>
@@ -116,31 +115,34 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <h3>Whimsy Works</h3>
-                    <p>Magic, for the kids who need it the most.</p>
-                </div>
-                <div class="footer-contact">
-                    <h4>Contact Us</h4>
-                    <a href="mailto:info@whimsyworks.ca">info@whimsyworks.ca</a>
-                </div>
-                <div class="footer-social">
-                    <h4>Follow Us</h4>
-                    <div class="social-links">
-                        <a href="https://facebook.com/WhimsyWorking" aria-label="Facebook" target="_blank" rel="noopener">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-                        </a>
-                        <a href="https://instagram.com/WhimsyWorking" aria-label="Instagram" target="_blank" rel="noopener">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                        </a>
-                    </div>
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <img src="images/shield.webp" alt="" class="footer-shield" width="64" height="64">
+                <div>
+                    <p class="footer-tagline">Magic, for the kids who need it the most.</p>
+                    <p class="footer-small">A volunteer-run nonprofit bringing characters to pediatric hospitals, fundraisers, and community events across Ontario.</p>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Whimsy Works. All rights reserved.</p>
+            <div class="footer-col">
+                <h4>Say hello</h4>
+                <ul>
+                    <li><a href="mailto:info@whimsyworks.ca">info@whimsyworks.ca</a></li>
+                    <li><a href="https://instagram.com/WhimsyWorking" target="_blank" rel="noopener">Instagram</a></li>
+                    <li><a href="https://facebook.com/WhimsyWorking" target="_blank" rel="noopener">Facebook</a></li>
+                </ul>
             </div>
+            <div class="footer-col">
+                <h4>Around the site</h4>
+                <ul>
+                    <li><a href="book.html">Book a visit</a></li>
+                    <li><a href="events.html">Event calendar</a></li>
+                    <li><a href="volunteer.html">Volunteer</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; <span class="footer-year">2026</span> Whimsy Works</p>
+            <p>Made by volunteers in Ontario ✦</p>
         </div>
     </footer>
 
