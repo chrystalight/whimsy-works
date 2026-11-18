@@ -33,6 +33,14 @@
 const EVENTS = [
 
     {
+        date: "2026-11-07",
+        title: "Trick or Suite — Starlight Children's Foundation",
+        badge: "Charity",
+        location: "📍 Microtel Inn & Suites by Wyndham, Aurora, ON",
+        description: "Whimsy Works returned to Starlight Children's Foundation's accessible Halloween event, filling decorated hotel suites with characters, from a comic-book room full of superheroes to a lantern-lit Tangled room with Rapunzel and Flynn Rider."
+    },
+
+    {
         date: "2026-09-12",
         title: "Superhero Stomp",
         badge: "Fundraiser",
