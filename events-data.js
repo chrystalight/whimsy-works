@@ -49,9 +49,7 @@ const EVENTS = [
         badge: "Fundraiser",
         charity: "Supporting <strong>CF Canada</strong> — raising funds for cystic fibrosis research and support programs across Canada.",
         location: "📍 Thomson Memorial Park, 1005 Brimley Rd, Scarborough, ON",
-        time: "🕙 10:00 AM – 1:00 PM",
-        description: "Whimsy Works will be joining CF Canada, with wandering characters. Find us for photos and autographs!",
-        link: { url: "https://walk-cysticfibrosiscanada.crowdchange.ca/128201", text: "Learn More →" }
+        description: "Whimsy Works joined CF Canada with wandering characters, meeting families for photos and autographs all along the walk."
     },
 
     {
@@ -60,9 +58,7 @@ const EVENTS = [
         badge: "Fundraiser",
         charity: "Supporting <strong>Breakthrough T1D</strong> — raising funds for type 1 diabetes research and a cure.",
         location: "📍 E.T. Seton Park, Toronto, ON",
-        time: "🕘 9:00 AM – 11:00 AM",
-        description: "Whimsy Works will be joining Breakthrough T1D, with wandering characters. Find us for photos and autographs!",
-        link: { url: "https://breakthrought1d.ca/breakthrough-t1d-walk-2026/", text: "Learn More →" }
+        description: "Whimsy Works characters joined Breakthrough T1D for their annual walk, stopping for photos and autographs with families along the way."
     },
 
     {
@@ -71,19 +67,51 @@ const EVENTS = [
         badge: "Fundraiser",
         charity: "Supporting <strong>Brain Tumour Foundation of Canada</strong> — honouring those affected and funding vital research.",
         location: "📍 JC Saddington Park, Mississauga, ON",
-        time: "🕘 9:00 AM – 12:00 PM",
-        description: "Whimsy Works will be joining the Brain Tumour Foundation of Canada, with wandering characters. Find us for photos and autographs!",
-        link: { url: "https://www.braintumour.ca/event/toronto-gta-community-brain-tumour-walk/", text: "Learn More →" }
+        description: "Whimsy Works joined the Brain Tumour Foundation of Canada with wandering characters, meeting families for photos and autographs."
+    },
+
+    {
+        date: "2026-07-27",
+        title: "St. James Town Kids' Market",
+        badge: "Community",
+        charity: "In partnership with <strong>The Children's Book Bank</strong>, celebrating reading and literacy with kids across Toronto.",
+        location: "📍 545 Sherbourne St, Toronto, ON",
+        description: "Belle, Cinderella, and Rapunzel hosted little princess and superhero story times throughout the Children's Book Bank's St. James Town Kids' Market."
+    },
+
+    {
+        date: "2026-08-08",
+        title: "Super Storytime at Jane & Finch",
+        badge: "Community",
+        charity: "In partnership with <strong>The Children's Book Bank</strong>, celebrating reading and literacy with kids across Toronto.",
+        location: "📍 Yorkgate Mall, Toronto, ON",
+        description: "Superman and Supergirl brought a superhero story time to the Children's Book Bank's Jane/Finch location, reading with kids and posing for photos."
+    },
+
+    {
+        date: "2026-08-15",
+        title: "Pixie Hollow Fairy Storytime",
+        badge: "Community",
+        charity: "In partnership with <strong>The Children's Book Bank</strong>, celebrating reading and literacy with kids across Toronto.",
+        location: "📍 Regent Park & Sherbourne, Toronto, ON",
+        description: "Tinkerbelle, Rosetta, and Fawn brought a Pixie Hollow fairy story time to the Children's Book Bank's Regent Park and Sherbourne locations."
     },
 
     {
         date: "2026-08-22",
         title: "A Day in Holland with Super Sandro",
         badge: "Community",
-        location: "📍 Oak Ridges Community Center, Lake Wilcox Trail",
-        time: "🕘 4:30 PM – 6:00 PM",
-        description: "Whimsy Works will be joining Sandro's family in an event dedicated to raising awareness for Pallister-Killian Syndrome. Everyone is invited to this family friendly event! Find us for photos and autographs.",
-        link: { url: "https://www.gofundme.com/f/pks-awareness-day-december-4th", text: "Learn More →" }
+        location: "📍 Oak Ridges Community Centre, Lake Wilcox Trail",
+        description: "Whimsy Works joined Sandro's family for a family-friendly event raising awareness for Pallister-Killian Syndrome, meeting everyone for photos and autographs."
+    },
+
+    {
+        date: "2026-08-26",
+        title: "Children's Book Bank Summer Reading Parties",
+        badge: "Community",
+        charity: "In partnership with <strong>The Children's Book Bank</strong>, celebrating reading and literacy with kids across Toronto.",
+        location: "📍 Sherbourne, Morningside, Regent Park & Jane/Finch, Toronto, ON",
+        description: "Whimsy Works characters joined the Children's Book Bank's end-of-summer reading parties across their Toronto locations, wrapping up a summer of reading with stories, photos, and autographs."
     },
 
     {
