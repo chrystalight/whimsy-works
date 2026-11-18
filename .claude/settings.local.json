@@ -37,7 +37,18 @@
       "Bash(awk '$1>1')",
       "Bash(python -c \"import playwright; print\\('playwright available'\\)\")",
       "Bash(pkill -f \"python -m http.server 8791\")",
-      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:8790/images/book-hero.jpg)"
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:8790/images/book-hero.jpg)",
+      "WebFetch(domain:trickorsuite.com)",
+      "mcp__claude_ai_Google_Calendar__search_events",
+      "mcp__claude_ai_Google_Calendar__list_events",
+      "mcp__claude_ai_Gmail__search_threads",
+      "mcp__claude_ai_Gmail__get_thread",
+      "Bash(grep -iE \"\\\\.\\(jpg|jpeg|png\\)$\")",
+      "Bash(mv \"Library/Breakthrough_T1D_TorontoWalk_2025_HighRes-211 \\(2\\).jpg\" \"event-4.jpg\")",
+      "Bash(mv \"Library/Breakthrough_T1D_TorontoWalk_2025_HighRes-139 \\(2\\).jpg\" \"event-5.jpg\")",
+      "Bash(mv \"Library/Breakthrough_T1D_TorontoWalk_2025_HighRes-210 \\(2\\).jpg\" \"event-6.jpg\")",
+      "Bash(rmdir Library)",
+      "Bash(python scripts/compress_images.py)"
     ]
   }
 }
