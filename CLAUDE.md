@@ -17,7 +17,9 @@ and community events across Ontario at no cost.
 - Pages (repo root): `index.html` (home), `events.html` (Event Calendar),
   `book.html`, `princesses.html`, `superheros.html`, `more-characters.html`,
   `volunteer.html`, `trickorsuite.html`, `trickorsuite-montreal.html`.
-- `styles.css` — all styling (shared across pages).
+- `styles.css` — all styling (shared across pages). Pages load it (and the JS)
+  with a `?v=YYYY-MM-DD` suffix; bump it on every page when CSS/JS changes so
+  phones don't keep a stale cached copy.
 - `script.js` — all interactivity: mobile menu, event rendering,
   character galleries/outfit switchers, booking-form helpers, the sparkle
   cursor trail, and a friendly placeholder for missing images.

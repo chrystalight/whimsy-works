@@ -513,14 +513,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const mirror = document.querySelector('.mirror-frame');
     if (mirror) {
         const looks = mirror.querySelectorAll('img');
-        const nameEl = document.querySelector('.mirror-name');
         let current = 0;
         let flipTimer = null;
         const nextLook = () => {
             looks[current].classList.remove('is-on');
             current = (current + 1) % looks.length;
             looks[current].classList.add('is-on');
-            if (nameEl) nameEl.textContent = looks[current].dataset.name;
         };
         mirror.addEventListener('click', nextLook);
         mirror.addEventListener('mouseenter', () => {
