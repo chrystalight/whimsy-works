@@ -46,6 +46,14 @@ and community events across Ontario at no cost.
   Optional `tape-sky` / `tape-coral` classes change the tape colour. Images use
   the `event-N.webp` naming convention.
 
+## Founder note & mirror
+
+- The `#about` section of `index.html` is Catie's first-person founder note
+  (Whimsy Works is run by her personally; keep it in her voice, not "a collective").
+- Beside it, `.mirror-frame` stacks `images/mirror-*.webp` front-hall selfies
+  (900x1200, cropped so the mirror lines up). Tap/click advances; hover
+  flips through them (`script.js`). Add a look = add one `<img data-name="...">`.
+
 ## Look & feel
 
 - Warm paper background, flat colours pulled from the shield logo (sky,

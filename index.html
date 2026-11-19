@@ -17,7 +17,7 @@
         <div class="header-container">
             <a href="index.html" class="logo"><img src="images/shield.webp" alt="" class="logo-img" width="44" height="44">Whimsy Works</a>
             <button class="mobile-menu-btn" aria-label="Menu" aria-expanded="false">
-                <span></span><span></span><span></span>
+                <span class="bars" aria-hidden="true"><span></span><span></span><span></span></span><span class="menu-word">Menu</span>
             </button>
             <nav class="nav" aria-label="Main">
                 <a href="princesses.html" class="nav-link">Princesses</a>
@@ -37,7 +37,7 @@
                 <div class="home-hero-text">
                     <p class="kicker">volunteer-run &amp; Ontario-grown</p>
                     <h1>Magic, for the kids who <span class="squiggle">need it the most.</span></h1>
-                    <p class="lede">We're a crew of volunteer performers and costume makers who show up as princesses, superheroes, and storybook friends at pediatric hospitals, fundraisers, and community events. Hospital and charity visits never cost a thing.</p>
+                    <p class="lede">We're a small crew of volunteer performers who show up as princesses, superheroes, and storybook friends at pediatric hospitals, fundraisers, and community events. Hospital and charity visits never cost a thing.</p>
                     <div class="btn-row">
                         <a href="book.html" class="btn btn-primary">Book a visit</a>
                         <a href="volunteer.html" class="btn btn-ghost">Join the crew</a>
@@ -55,8 +55,8 @@
                         <figcaption>T1D Walk, 2025</figcaption>
                     </figure>
                     <figure class="snap taped tape-sky pile-b">
-                        <img src="images/catie.webp" alt="Anna and Elsa holding hands by the water at sunset">
-                        <figcaption>sisters, at golden hour</figcaption>
+                        <img src="images/event-5.webp" alt="Rapunzel leaning over a craft table to help two little girls with their projects at the Breakthrough T1D Toronto Walk">
+                        <figcaption>craft time!</figcaption>
                     </figure>
                 </div>
             </div>
@@ -65,18 +65,29 @@
         <!-- Our story -->
         <section class="section section-alt" id="about">
             <div class="container story-grid">
-                <figure class="snap taped tape-coral story-photo">
-                    <img src="images/event-3.webp" alt="Elsa, Anna, and Tinker Bell posing with a family at the Walk to Make Cystic Fibrosis History">
-                    <figcaption>CF Walk crew, 2025</figcaption>
+                <figure class="snap taped tape-coral story-photo mirror">
+                    <button type="button" class="mirror-frame" aria-label="Catie's front-hall mirror selfie. Show another outfit">
+                        <img src="images/mirror-rapunzel.webp" alt="" data-name="Rapunzel" class="is-on">
+                        <img src="images/mirror-supergirl.webp" alt="" data-name="Supergirl" loading="lazy">
+                        <img src="images/mirror-peach.webp" alt="" data-name="Princess Peach" loading="lazy">
+                        <img src="images/mirror-jessie.webp" alt="" data-name="Jessie" loading="lazy">
+                        <img src="images/mirror-cinderella.webp" alt="" data-name="Cinderella" loading="lazy">
+                        <img src="images/mirror-glinda.webp" alt="" data-name="Glinda" loading="lazy">
+                    </button>
+                    <figcaption>headed out as <span class="mirror-name" aria-live="polite">Rapunzel</span>
+                        <small class="mirror-hint"><span class="hint-touch">tap the mirror for another outfit</span><span class="hint-hover">hover over the mirror for more outfits</span></small>
+                    </figcaption>
                 </figure>
                 <div class="story-text">
-                    <p class="kicker">how it started</p>
-                    <h2>A handful of cosplayers at a children's book bank.</h2>
-                    <p>That's where Whimsy Works began: a few of us in costume at the Toronto Children's Book Bank. It has since grown into a province-wide collective of artists and volunteers.</p>
-                    <p>We handmake and maintain dozens of size-inclusive costumes ourselves, and we work with charities, non-profits, and families across Ontario. Nobody here is paid. We do it because we've seen what happens when a princess walks into a hospital room.</p>
+                    <p class="kicker">the person behind the costumes</p>
+                    <h2>Hi, I'm Catie.</h2>
+                    <p>You might have met me as Elsa, Cinderella, Supergirl&hellip; the list goes on. I've been a princess performer since 2022, and a cosplayer for a lot longer. Along the way, I've seen firsthand how special it is for a child to meet their favourite princess or superhero. Volunteering with Starlight and Make-A-Wish, I quickly realized that this magic wasn't always reaching the kids who needed it the most.</p>
+                    <p>That's why I started Whimsy Works, my nonprofit dedicated to bringing princess and superhero magic to kids in need all across Ontario. What began as an extra costume here and a friend tagging along there quickly grew into a beautiful community of cosplayers, princess performers, and other volunteers who love bringing these characters to life.</p>
+                    <p>I handmake and collect princess and superhero costumes and wigs in a wide range of sizes, so anyone who wants to join has a costume waiting for them.</p>
+                    <p>I'm so grateful to be able to support this endeavour with private bookings and grants, which help cover the costs of costume maintenance, travel, and administrative fees.</p>
                     <div class="big-stat stitched">
                         <span class="num">85%</span>
-                        <p>of our visits are for charities and non-profit partners. When you book us for a private party, you're helping pay for the rest.</p>
+                        <p>of our visits are for charities and non-profit partners, and those are always free.</p>
                     </div>
                 </div>
             </div>

@@ -506,12 +506,35 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Visitors whose devices ask for less motion skip the sparkle trail and auto-flipping
+    const calmMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    // Front-hall mirror: tap to change outfits, or hover to flip through them
+    const mirror = document.querySelector('.mirror-frame');
+    if (mirror) {
+        const looks = mirror.querySelectorAll('img');
+        const nameEl = document.querySelector('.mirror-name');
+        let current = 0;
+        let flipTimer = null;
+        const nextLook = () => {
+            looks[current].classList.remove('is-on');
+            current = (current + 1) % looks.length;
+            looks[current].classList.add('is-on');
+            if (nameEl) nameEl.textContent = looks[current].dataset.name;
+        };
+        mirror.addEventListener('click', nextLook);
+        mirror.addEventListener('mouseenter', () => {
+            if (calmMotion.matches) return;
+            nextLook();
+            flipTimer = setInterval(nextLook, 1200);
+        });
+        mirror.addEventListener('mouseleave', () => clearInterval(flipTimer));
+    }
+
     // Sparkle cursor trail
     const sparkleChars = ['\u2728', '\u2B50', '\u00B7', '\u2736', '\u2022'];
     const sparkleColors = ['#937288', '#FFA7A0', '#A0CBD4', '#D67A74', '#7192A6'];
     let lastSparkle = 0;
-    // Skip the trail for visitors whose devices ask for less motion
-    const calmMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     document.addEventListener('mousemove', function(e) {
         if (calmMotion.matches) return;
         const now = Date.now();
