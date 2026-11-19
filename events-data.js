@@ -79,6 +79,15 @@ const EVENTS = [
     },
 
     {
+        date: "2026-07-01",
+        title: "Canada Day Treats for Childhood Cancer",
+        badge: "Fundraiser",
+        charity: "A fundraiser by <strong>Donate4Kids</strong> for kids facing childhood cancer.",
+        location: "📍 Hamilton, ON",
+        description: "Rapunzel, Elsa, and Belle joined Donate4Kids for their annual Canada Day fundraiser, sharing stories, music, and some magical face paint with new friends."
+    },
+
+    {
         date: "2026-07-27",
         title: "St. James Town Kids' Market",
         badge: "Community",
