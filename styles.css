@@ -546,12 +546,13 @@ strong { font-weight: 700; }
 
 /* ---------- Scrapbook ---------- */
 .scrapbook {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 2.75rem 2rem;
-    align-items: start;
+    align-items: flex-start;
 }
-.scrapbook .snap { --ratio: 4 / 3; }
+.scrapbook .snap { --ratio: 4 / 3; flex: 0 1 calc((100% - 4rem) / 3); min-width: 270px; }
 .scrapbook .snap:nth-child(3n+1) { --tilt: -2deg; --tape-tilt: -6deg; }
 .scrapbook .snap:nth-child(3n+2) { --tilt: 1.5deg; --tape-tilt: 3deg; margin-top: 1.5rem; }
 .scrapbook .snap:nth-child(3n)   { --tilt: -0.75deg; --tape-tilt: -2deg; }
@@ -641,6 +642,8 @@ strong { font-weight: 700; }
     .scrapbook,
     .cast-grid {
         display: flex;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
         gap: 1.25rem;
         max-width: none;
         margin: 0 calc(-1 * var(--gutter));
@@ -654,8 +657,10 @@ strong { font-weight: 700; }
     .scrapbook::-webkit-scrollbar,
     .cast-grid::-webkit-scrollbar { display: none; }
     .scrapbook > *,
+    .scrapbook .snap,
     .cast-grid > * {
         flex: 0 0 80%;
+        min-width: 0;
         scroll-snap-align: start;
     }
     .scrapbook .snap:nth-child(3n+2) { margin-top: 0; }

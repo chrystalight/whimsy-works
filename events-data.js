@@ -34,9 +34,8 @@ const EVENTS = [
 
     {
         date: "2026-11-07",
-        title: "Trick or Suite — Starlight Children's Foundation",
+        title: "Starlight Trick or Suite",
         badge: "Charity",
-        location: "📍 Microtel Inn & Suites by Wyndham, Aurora, ON",
         description: "Whimsy Works returned to Starlight Children's Foundation's accessible Halloween event, filling decorated hotel suites with characters, from a comic-book room full of superheroes to a lantern-lit Tangled room with Rapunzel and Flynn Rider."
     },
 
@@ -45,10 +44,8 @@ const EVENTS = [
         title: "Superhero Stomp",
         badge: "Fundraiser",
         charity: "Fundraiser by Candlelighters Simcoe, an organization of families facing childhood cancer.",
-        location: "📍 Southshore Community Center, Lakeshore Drive, Barrie",
-        time: "🕚 11:00 AM – 1:00 PM",
-        description: "Some people dream of being a Superhero. But for kids fighting cancer, there is no choice. They must become a Superhero as they fight the evil villain known as Cancer!",
-        link: { url: "https://raceroster.com/events/2026/138813/superhero-stomp-2026", text: "Learn More →" }
+        location: "📍 Southshore Community Centre, Lakeshore Drive, Barrie",
+        description: "Elsa, Spider-Man, Superman, and Batgirl joined Candlelighters Simcoe for their superhero 5K, posing for photos, meeting families, and cheering on every runner."
     },
 
     {
@@ -111,7 +108,7 @@ const EVENTS = [
         badge: "Community",
         charity: "In partnership with <strong>The Children's Book Bank</strong>, celebrating reading and literacy with kids across Toronto.",
         location: "📍 Regent Park & Sherbourne, Toronto, ON",
-        description: "Tinkerbelle, Rosetta, and Fawn brought a Pixie Hollow fairy story time to the Children's Book Bank's Regent Park and Sherbourne locations."
+        description: "Tinker Bell, Rosetta, and Fawn brought a Pixie Hollow fairy story time to the Children's Book Bank's Regent Park and Sherbourne locations."
     },
 
     {
@@ -133,9 +130,8 @@ const EVENTS = [
 
     {
         date: "2025-10-31",
-        title: "Trick or Suite — Starlight Children's Foundation",
+        title: "Starlight Trick or Suite",
         badge: "Charity",
-        location: "📍 Aurora, ON",
         description: "Twenty Whimsy Works characters joined Starlight Children's Foundation for their annual accessible Halloween event, bringing joy to children and families."
     },
 
@@ -144,7 +140,7 @@ const EVENTS = [
         title: "Kian's Skate",
         badge: "Fundraiser",
         location: "📍 Drayton, ON",
-        description: "Whimsy Works princesses and superheros joined Kian and his family at their annual ice skating fundraiser for cancer research, skating with families and sharing magic at this amazing community event."
+        description: "Whimsy Works princesses and superheroes joined Kian and his family at their annual ice skating fundraiser for cancer research, skating with families and sharing magic at this amazing community event."
     },
 
     {
@@ -152,7 +148,7 @@ const EVENTS = [
         title: "Walk to Change Cystic Fibrosis History — CF Canada",
         badge: "Fundraiser",
         location: "📍 Toronto, ON",
-        description: "Elsa, Anna, and Tinkerbelle brought fairytale magic to the annual CF Canada walk in support of cystic fibrosis research."
+        description: "Elsa, Anna, and Tinker Bell brought fairytale magic to the annual CF Canada walk in support of cystic fibrosis research."
     },
 
 ];
