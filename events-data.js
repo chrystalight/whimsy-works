@@ -40,6 +40,15 @@ const EVENTS = [
     },
 
     {
+        date: "2026-09-27",
+        title: "Walk/Run for Georgetown Hospital",
+        badge: "Fundraiser",
+        charity: "Supporting the <strong>Georgetown Hospital Foundation</strong> and care close to home in Halton Hills.",
+        location: "📍 Gellert Community Centre, Georgetown, ON",
+        description: "Cinderella and Rapunzel joined the Georgetown Hospital Foundation's walk and family festival, cheering on walkers and runners and meeting families at the festival."
+    },
+
+    {
         date: "2026-09-12",
         title: "Superhero Stomp",
         badge: "Fundraiser",
