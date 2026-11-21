@@ -17,6 +17,9 @@ and community events across Ontario at no cost.
 - Pages (repo root): `index.html` (home), `events.html` (Event Calendar),
   `book.html`, `princesses.html`, `superheros.html`, `more-characters.html`,
   `volunteer.html`, `trickorsuite.html`, `trickorsuite-montreal.html`.
+- `meet-the-cast.html` (volunteer profiles) is **unlisted** on purpose: no nav or
+  footer link anywhere, plus `noindex`. Don't link to it until Catie says so.
+  Add a volunteer = copy one `<article class="crew-card">`; the title pill is optional.
 - `styles.css` — all styling (shared across pages). Pages load it (and the JS)
   with a `?v=YYYY-MM-DD` suffix; bump it on every page when CSS/JS changes so
   phones don't keep a stale cached copy.

@@ -1437,3 +1437,70 @@ strong { font-weight: 700; }
     html { scroll-behavior: auto; }
     *, *::before, *::after { transition: none !important; }
 }
+
+/* =============================================
+   MEET THE CAST (volunteers)
+   ============================================= */
+.crew-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2.25rem 2rem;
+}
+.crew-grid-leads { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+.crew-card { padding: 1.75rem 1.5rem 1.6rem; }
+.crew-card .snap { --ratio: 1 / 1; width: 100%; max-width: 230px; margin: 0.5rem auto 0; padding-bottom: 10px; }
+.crew-card:nth-child(3n+1) .snap { --tilt: -2deg; --tape-tilt: -5deg; }
+.crew-card:nth-child(3n+2) .snap { --tilt: 1.5deg; --tape-tilt: 4deg; }
+.crew-card:nth-child(3n)   .snap { --tilt: -1deg; --tape-tilt: -2deg; }
+.crew-card .placeholder-image img { min-height: 0; color: transparent; } /* hide broken-image alt text behind the placeholder note */
+
+.crew-body { margin-top: 1.4rem; text-align: center; }
+.crew-body h3 { font-size: 1.55rem; }
+.crew-title {
+    display: inline-block;
+    margin-top: 0.4rem;
+    padding: 0.2rem 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--mauve);
+    background: var(--mauve-soft);
+    border-radius: 999px;
+}
+.crew-plays {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.35rem;
+    margin-top: 0.85rem;
+}
+.crew-plays li {
+    font-size: 0.85rem;
+    padding: 0.15rem 0.6rem;
+    border: 1.5px dashed var(--line-strong);
+    border-radius: 999px;
+    color: var(--ink-soft);
+}
+.crew-qa { margin-top: 1.25rem; text-align: left; display: grid; gap: 0.85rem; }
+.crew-qa dt { font-family: var(--font-hand); font-weight: 600; font-size: 1.3rem; line-height: 1.1; color: var(--coral-deep); }
+.crew-qa dd { margin-top: 0.15rem; font-size: 0.98rem; color: var(--ink); }
+.crew-qa dd.crew-placeholder { color: var(--ink-soft); font-style: italic; opacity: 0.75; }
+
+/* Leads: photo beside the words */
+.crew-lead { display: grid; grid-template-columns: 200px 1fr; gap: 1.75rem; align-items: start; padding: 2rem; }
+.crew-lead .snap { margin: 0.5rem 0 0; }
+.crew-lead .crew-body { margin-top: 0; text-align: left; }
+.crew-lead .crew-plays { justify-content: flex-start; }
+
+@media (max-width: 1020px) {
+    .crew-grid-leads { grid-template-columns: 1fr; max-width: 640px; }
+    .crew-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+    .crew-grid { grid-template-columns: 1fr; }
+    .crew-lead { grid-template-columns: 1fr; }
+    .crew-lead .snap { margin: 0.5rem auto 0; }
+    .crew-lead .crew-body { text-align: center; }
+    .crew-lead .crew-plays { justify-content: center; }
+}
