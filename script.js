@@ -529,6 +529,26 @@ document.addEventListener('DOMContentLoaded', function() {
         mirror.addEventListener('mouseleave', () => clearInterval(flipTimer));
     }
 
+    // Meet the Cast: long character lists show the first few, then "+N more"
+    document.querySelectorAll('.crew-plays').forEach(list => {
+        const SHOW = 5;
+        const items = list.querySelectorAll('li');
+        if (items.length <= SHOW + 1) return;
+        items.forEach((li, i) => { if (i >= SHOW) li.hidden = true; });
+        const moreItem = document.createElement('li');
+        moreItem.className = 'crew-more-item';
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'crew-more';
+        btn.textContent = `+${items.length - SHOW} more`;
+        btn.addEventListener('click', () => {
+            items.forEach(li => { li.hidden = false; });
+            moreItem.remove();
+        });
+        moreItem.appendChild(btn);
+        list.appendChild(moreItem);
+    });
+
     // Sparkle cursor trail
     const sparkleChars = ['\u2728', '\u2B50', '\u00B7', '\u2736', '\u2022'];
     const sparkleColors = ['#937288', '#FFA7A0', '#A0CBD4', '#D67A74', '#7192A6'];

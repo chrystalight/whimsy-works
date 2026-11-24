@@ -1504,3 +1504,19 @@ strong { font-weight: 700; }
     .crew-lead .crew-body { text-align: center; }
     .crew-lead .crew-plays { justify-content: center; }
 }
+.crew-plays li.crew-more-item { border: 0; padding: 0; }
+.crew-more {
+    -webkit-appearance: none;
+    appearance: none;
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 700;
+    line-height: inherit;
+    padding: 0.15rem 0.65rem;
+    border: 1.5px solid var(--coral);
+    border-radius: 999px;
+    background: var(--coral-soft);
+    color: var(--coral-deep);
+    cursor: pointer;
+}
+.crew-more:hover { background: var(--coral); color: var(--ink); }
